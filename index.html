@@ -1,114 +1,130 @@
 <!doctype html>
 <html lang="el">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Pardalos Photos & Videos — φωτογραφία και βίντεο γάμου, βάπτισης και εκδηλώσεων στη Ρόδο.">
-<title>Pardalos Photos & Videos | Ρόδος</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Pardalos Photos & Videos — φωτογραφία και βίντεο γάμου, βάπτισης και εκδηλώσεων στη Ρόδο.">
+  <title>Pardalos Photos & Videos | Ρόδος</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top">Pardalos Photos <small>& Videos · Rhodes</small></a>
-    <div class="menu">
-      <a href="#services">Υπηρεσίες</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#about">Σχετικά</a>
-      <a href="#contact">Επικοινωνία</a>
-    </div>
-  </div>
-</nav>
-
-<header id="top" class="hero">
-  <div class="wrap hero-content">
-    <div class="eyebrow">Wedding · Baptism · Events · Video</div>
-    <h1>Ιστορίες που μένουν.</h1>
-    <p class="lead">Φωτογραφία και βίντεο με έμφαση στη στιγμή, το συναίσθημα και την ατμόσφαιρα της ημέρας σας.</p>
-    <div class="actions">
-      <a class="btn primary" href="#portfolio">Δείτε το portfolio</a>
-      <a class="btn" href="#contact">Επικοινωνήστε μαζί μας</a>
+<header class="topbar" id="top">
+  <div class="shell navrow">
+    <a class="logo" href="#top" aria-label="Pardalos Photos & Videos">
+      <span class="logo-mark">P</span>
+      <span class="logo-copy"><strong>Pardalos</strong><small>PHOTOS & VIDEOS</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Μενού">☰</button>
+    <nav class="navlinks">
+      <a class="active" href="#top">ΑΡΧΙΚΗ</a>
+      <a href="#services">ΥΠΗΡΕΣΙΕΣ</a>
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#about">ΣΧΕΤΙΚΑ</a>
+      <a href="#contact">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+    </nav>
+    <div class="social-top">
+      <a href="https://web.facebook.com/profile.php?id=61573114643566" target="_blank" rel="noopener">f</a>
+      <a href="https://instagram.com/tsabickos" target="_blank" rel="noopener">◎</a>
+      <a href="https://wa.me/306946433743" target="_blank" rel="noopener">◉</a>
     </div>
   </div>
 </header>
 
-<section id="services">
- <div class="wrap">
-  <div class="section-head">
-    <div><div class="eyebrow">Υπηρεσίες</div><h2>Από τη στιγμή<br>στην ανάμνηση.</h2></div>
-    <p>Ολοκληρωμένη κάλυψη σημαντικών στιγμών με φωτογραφία, βίντεο και δημιουργικές επιλογές για κάθε εκδήλωση.</p>
-  </div>
-  <div class="services">
-    <article class="service"><b>Γάμος</b><p>Φωτογραφική και βιντεογραφική κάλυψη, προετοιμασία, τελετή, δεξίωση και next-day λήψεις.</p></article>
-    <article class="service"><b>Βάπτιση</b><p>Φυσικές οικογενειακές εικόνες, λεπτομέρειες μυστηρίου και ολοκληρωμένη καταγραφή της ημέρας.</p></article>
-    <article class="service"><b>Video & Drone</b><p>Κινηματογραφική βιντεογράφηση, εναέριες λήψεις και σύγχρονη παρουσίαση της εκδήλωσής σας.</p></article>
-    <article class="service"><b>Love Story</b><p>Προγαμιαίες και couple φωτογραφίσεις σε επιλεγμένες τοποθεσίες της Ρόδου.</p></article>
-    <article class="service"><b>360 Video Booth</b><p>Διαδραστική εμπειρία 360° για γάμους, πάρτι και εταιρικές εκδηλώσεις.</p></article>
-    <article class="service"><b>Εκτυπώσεις & Albums</b><p>Επιλεγμένες εκτυπώσεις, καμβάδες, photobooks και albums για ολοκληρωμένη παράδοση.</p></article>
-  </div>
- </div>
-</section>
-
-<section id="portfolio">
- <div class="wrap">
-  <div class="section-head">
-    <div><div class="eyebrow">Selected Work</div><h2>Portfolio</h2></div>
-    <p>Πρώτη online συλλογή. Θα προσθέσουμε στη συνέχεια και τα υπόλοιπα events ως ξεχωριστές συλλογές.</p>
-  </div>
-  <div class="filters">
-    <button class="filter active" data-filter="all">Όλα</button>
-    <button class="filter" data-filter="Event01">Event 01</button>
-  </div>
-  <div id="gallery" class="gallery"></div>
- </div>
-</section>
-
-<section id="about">
- <div class="wrap about">
-   <div>
-     <div class="eyebrow">Pardalos Photos & Videos</div>
-     <h2>Φωτογραφία με χαρακτήρα και συναίσθημα.</h2>
-     <p>Κάθε εκδήλωση έχει τη δική της ιστορία. Στόχος μας είναι να καταγράφουμε αυθεντικές στιγμές, χωρίς να χάνεται η φυσικότητα της ημέρας, και να δημιουργούμε υλικό που θα θέλετε να ξαναβλέπετε.</p>
-   </div>
-   <div class="about-card">
-     <h3>Rhodes, Greece</h3>
-     <p>Γάμοι · Βαπτίσεις · Εκδηλώσεις · Video · Drone · 360 Booth</p>
-     <a class="btn primary" href="#contact">Ζητήστε διαθεσιμότητα</a>
-   </div>
- </div>
-</section>
-
-<section id="contact">
- <div class="wrap">
-  <div class="section-head">
-    <div><div class="eyebrow">Επικοινωνία</div><h2>Ας μιλήσουμε<br>για τη δική σας ημέρα.</h2></div>
-  </div>
-  <div class="contact-grid">
-   <div class="contact-box">
-    <h3>Pardalos Photos & Videos</h3>
-    <div class="contact-row">📍 Π. Ράμμου 186, Αφάντου, Ρόδος</div>
-    <div class="contact-row">📞 <a href="tel:+306946433743">694 643 3743</a></div>
-    <div class="contact-row">✉️ <a href="mailto:pardalosphotos@hotmail.com">pardalosphotos@hotmail.com</a></div>
-   </div>
-   <div class="contact-box">
-    <h3>Social & Messaging</h3>
-    <div class="actions">
-      <a class="btn primary" href="https://wa.me/306946433743" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn" href="https://web.facebook.com/profile.php?id=61573114643566" target="_blank" rel="noopener">Facebook</a>
-      <a class="btn" href="https://instagram.com/tsabickos" target="_blank" rel="noopener">Instagram</a>
+<main>
+<section class="hero">
+  <div class="hero-shade"></div>
+  <div class="shell hero-content">
+    <p class="kicker">WEDDING <i>•</i> BAPTISM <i>•</i> EVENTS <i>•</i> VIDEO</p>
+    <h1>Ιστορίες που<br><span>μένουν...</span></h1>
+    <div class="red-line"></div>
+    <p class="hero-text">Φωτογραφία και βίντεο με έμφαση στη στιγμή,<br>το συναίσθημα και την ατμόσφαιρα της ημέρας σας.</p>
+    <div class="hero-actions">
+      <a class="btn btn-red" href="#portfolio">▣ &nbsp; ΔΕΙΤΕ ΤΟ PORTFOLIO</a>
+      <a class="btn btn-gold" href="#contact">✉ &nbsp; ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</a>
     </div>
-   </div>
   </div>
- </div>
 </section>
 
-<footer><div class="wrap">© 2026 Pardalos Photos & Videos · Rhodes, Greece</div></footer>
+<section class="services-section" id="services">
+  <div class="shell">
+    <div class="section-title center">
+      <small>ΟΛΟΚΛΗΡΩΜΕΝΕΣ ΥΠΗΡΕΣΙΕΣ</small>
+      <h2>ΑΠΟ ΤΗ ΣΤΙΓΜΗ ΣΤΗΝ ΑΝΑΜΝΗΣΗ</h2>
+      <span></span>
+    </div>
+    <div class="services-grid">
+      <article><div class="ico">◎</div><h3>ΓΑΜΟΣ</h3><p>Ολοκληρωμένη κάλυψη γάμου με φωτογραφία και βίντεο.</p></article>
+      <article><div class="ico">⌂</div><h3>ΒΑΠΤΙΣΗ</h3><p>Φυσικές οικογενειακές εικόνες και λεπτομέρειες μυστηρίου.</p></article>
+      <article><div class="ico">⌁</div><h3>VIDEO & DRONE</h3><p>Κινηματογραφική βιντεογράφηση και εντυπωσιακές εναέριες λήψεις.</p></article>
+      <article><div class="ico">♡</div><h3>LOVE STORY</h3><p>Ρομαντικές και couple φωτογραφίσεις σε όμορφα μέρη.</p></article>
+      <article><div class="ico big">360°</div><h3>360 VIDEO BOOTH</h3><p>Μοναδική εμπειρία 360° για γάμους, πάρτι και εκδηλώσεις.</p></article>
+      <article><div class="ico">▧</div><h3>ΕΚΤΥΠΩΣΕΙΣ & ALBUMS</h3><p>Εκτυπώσεις, canvas, photobooks και albums υψηλής ποιότητας.</p></article>
+      <article><div class="ico">♙♙</div><h3>ΖΕΥΓΑΡΙ & ΟΙΚΟΓΕΝΕΙΑ</h3><p>Φωτογραφίσεις ζευγαριών και οικογενειών με φυσικό και αυθεντικό ύφος.</p></article>
+    </div>
+  </div>
+</section>
 
-<div class="lightbox">
-  <button class="close" aria-label="Κλείσιμο">×</button>
-  <img alt="">
-</div>
+<section class="portfolio-section" id="portfolio">
+  <div class="shell portfolio-layout">
+    <div class="portfolio-intro">
+      <small>SELECTED WORK</small>
+      <h2>PORTFOLIO</h2>
+      <span></span>
+      <a class="btn btn-outline" href="#gallery">ΔΕΙΤΕ ΟΛΟ ΤΟ PORTFOLIO →</a>
+    </div>
+    <div class="portfolio-cards" id="gallery"></div>
+  </div>
+</section>
 
+<section class="about-section" id="about">
+  <div class="shell about-grid">
+    <div class="about-brand">
+      <div class="logo large">
+        <span class="logo-mark">P</span>
+        <span class="logo-copy"><strong>Pardalos</strong><small>PHOTOS & VIDEOS</small></span>
+      </div>
+      <p>Αποτυπώνουμε τις πιο σημαντικές στιγμές της ζωής σας με επαγγελματισμό, δημιουργικότητα και αγάπη για τη λεπτομέρεια.</p>
+    </div>
+    <div class="about-copy">
+      <small>ΑΣ ΜΙΛΗΣΟΥΜΕ</small>
+      <h2>ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</h2>
+      <p>Γάμος, βάπτιση, οικογενειακή φωτογράφιση, video, drone ή 360 booth — πείτε μας τι σχεδιάζετε και θα οργανώσουμε μαζί την κάλυψη.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="shell contact-grid">
+    <div class="contact-left">
+      <h2>Ας δημιουργήσουμε<br>μαζί τις αναμνήσεις σας!</h2>
+    </div>
+    <div class="contact-details">
+      <p>⌖ &nbsp; Π. Ράμμου 186<br><span>Αφάντου, Ρόδος</span></p>
+      <p>☎ &nbsp; <a href="tel:+306946433743">694 643 3743</a></p>
+      <p>✉ &nbsp; <a href="mailto:pardalosphotos@hotmail.com">pardalosphotos@hotmail.com</a></p>
+    </div>
+    <div class="qr-grid">
+      <a class="qr-card" href="https://wa.me/306946433743" target="_blank" rel="noopener"><img src="assets/qr/whatsapp.png" alt="QR WhatsApp"><span>WhatsApp</span></a>
+      <a class="qr-card" href="viber://chat?number=%2B306946433743"><img src="assets/qr/viber.png" alt="QR Viber"><span>Viber</span></a>
+      <a class="qr-card" href="mailto:pardalosphotos@hotmail.com"><img src="assets/qr/email.png" alt="QR Email"><span>Email</span></a>
+      <a class="qr-card" href="https://www.google.com/maps/search/?api=1&query=%CE%A0.%20%CE%A1%CE%AC%CE%BC%CE%BC%CE%BF%CF%85%20186%2C%20%CE%91%CF%86%CE%AC%CE%BD%CF%84%CE%BF%CF%85%2C%20%CE%A1%CF%8C%CE%B4%CE%BF%CF%82" target="_blank" rel="noopener"><img src="assets/qr/location.png" alt="QR Τοποθεσία"><span>Τοποθεσία</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="shell footer-row">
+    <span>© 2026 Pardalos Photos & Videos · Rhodes, Greece</span>
+    <span><a href="https://web.facebook.com/profile.php?id=61573114643566" target="_blank">Facebook</a> · <a href="https://instagram.com/tsabickos" target="_blank">Instagram</a> · <a href="https://wa.me/306946433743" target="_blank">WhatsApp</a></span>
+  </div>
+</footer>
+
+<div class="lightbox"><button aria-label="Κλείσιμο">×</button><img alt=""></div>
+
+<script>
+window.PARDALOS_PHOTOS = ["001_FB_IMG_1785006439688.jpg", "002_FB_IMG_1785006457928.jpg", "003_IMG-e3a89932367ae29edaaacf748818b200-V.jpg", "004_IMG-1949e77d377354b0cc55b42ce7d9ef07-V.jpg", "005_IMG-78a146cf477ebec6c73a72ec4666454d-V.jpg", "006_IMG-f1dc418f7ce5a9186d52002c2cfe0669-V.jpg", "007_IMG-b5508d7655fd3a58f71ad56a88c8c523-V.jpg", "008_FB_IMG_1785006426841.jpg", "009_FB_IMG_1785006446633.jpg", "010_IMG-a302c764ef1381a353c80b99bf90119c-V.jpg", "011_IMG-71449251c6073045cfb0034de992a9cc-V.jpg", "012_IMG-76882587148b9c6f5783e5f9f346b3fd-V.jpg", "013_FB_IMG_1785006415497.jpg", "014_FB_IMG_1785006419623.jpg", "015_IMG-d9c01c6777cd8a6b22f577430fd2bcba-V.jpg", "016_IMG-0b1b22262c1940a740feae8cf3c81477-V.jpg", "017_IMG-a0608a7c9fdae768a821982177e0e5e5-V.jpg", "018_IMG-5cc4df110dfb9f1b0fe6f3c146887413-V.jpg", "019_IMG-b607319955a0cf6b77f5a8dbbb3c9620-V.jpg", "020_IMG-b66ea3253507441d4804954a594361a9-V.jpg", "021_IMG-3cc855eeb6b27f59f87e8a187217f9a6-V.jpg", "022_FB_IMG_1785006452518.jpg", "023_IMG-5e6ddff63dd3649748af2e4e11ea885a-V.jpg", "024_IMG-b248e164154eefe43d598d304f0c7c0f-V.jpg", "025_IMG-78a06c70ee15db50de6f72e7c6901972-V.jpg", "026_IMG-e07ef44ef5e2d2671e57beb71958cbbe-V.jpg", "027_IMG-5362c61f72ded4c968834815c3a6d525-V.jpg", "028_IMG-ba05d96238fa9b3076f0ede8e3a994c8-V.jpg", "029_IMG-e077cee92e16c91c648dffc98946e279-V.jpg", "030_IMG-3fdab143c96a14e2b12a40f8013d323e-V.jpg", "031_IMG-2b81879e9b478d0a24dfb0f757a7bf97-V.jpg", "032_IMG-c62ef295747f1984787d17f52db4ba96-V.jpg", "033_IMG-6b846889c44097899c81dfcdf8abdd29-V.jpg", "034_IMG-e9a6bf2b28315544af390aa6d1f8e233-V.jpg", "035_IMG-2de1597ce1dc0e65c71f7af1ba7fa7e3-V.jpg", "036_IMG-a388025c5611abbe68a45ef6edbe262f-V.jpg", "037_IMG-413a1bbf53dd64d3eab8182609c9f1f1-V.jpg", "038_IMG-8dc9a5d6dfee1942b535442eeffd7efa-V.jpg", "039_IMG-0115e4bbfec034bd9defd1a41cf2b215-V.jpg", "040_IMG-270cbbef8401ef886ca5606edc50591a-V.jpg"];
+</script>
 <script src="assets/js/script.js"></script>
 </body>
 </html>
