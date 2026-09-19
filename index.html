@@ -67,10 +67,14 @@
 <section class="portfolio-section" id="portfolio">
   <div class="shell portfolio-layout">
     <div class="portfolio-intro">
-      <small>SELECTED WORK</small>
+      <small>ΦΩΤΟΓΡΑΦΙΕΣ</small>
       <h2>PORTFOLIO</h2>
       <span></span>
-      <a class="btn btn-outline" href="#gallery">ΔΕΙΤΕ ΟΛΟ ΤΟ PORTFOLIO →</a>
+      <div class="portfolio-filters" role="group" aria-label="Κατηγορία φωτογραφιών">
+        <button type="button" class="portfolio-filter active" data-portfolio-filter="all" data-label="Όλες" aria-pressed="true">Όλες</button>
+        <button type="button" class="portfolio-filter" data-portfolio-filter="wedding" data-label="Γάμος" aria-pressed="false">Γάμος</button>
+        <button type="button" class="portfolio-filter" data-portfolio-filter="baptism" data-label="Βάπτιση" aria-pressed="false">Βάπτιση</button>
+      </div>
     </div>
     <div class="portfolio-cards" id="gallery"></div>
   </div>
