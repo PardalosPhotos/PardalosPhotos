@@ -54,14 +54,18 @@ img{display:block;max-width:100%}
 .ico{font:400 54px/1 Georgia,serif;color:var(--red);height:64px}.ico.big{font-size:39px;padding-top:10px}
 .services-grid h3{font:500 16px/1.2 Georgia,serif;margin:12px 0 10px}.services-grid p{font-size:13px;color:#ddd;margin:0}
 
-.portfolio-section{padding:28px 0;border-bottom:1px solid var(--red)}
-.portfolio-layout{display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:center}
+.portfolio-section{padding:44px 0 54px;border-bottom:1px solid var(--red)}
+.portfolio-intro{margin-bottom:24px}
 .portfolio-intro small{color:var(--red);letter-spacing:.22em}.portfolio-intro h2{font:500 36px/1 Georgia,serif;color:var(--white);margin:5px 0 12px}
-.portfolio-intro>span{margin:0 0 28px}.portfolio-intro .btn{padding:12px 19px;font-size:12px}
-.portfolio-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.portfolio-card{position:relative;height:245px;border:1px solid rgba(201,154,69,.55);border-radius:7px;overflow:hidden;background:#111}
+.portfolio-intro>span{margin:0 0 22px}
+.portfolio-filters{display:flex;flex-wrap:wrap;gap:10px}
+.portfolio-filter{border:1px solid var(--gold);border-radius:999px;background:transparent;color:var(--gold2);font:700 14px Arial,Helvetica,sans-serif;padding:10px 19px;cursor:pointer}
+.portfolio-filter:hover,.portfolio-filter.active{background:var(--gold);color:#090909}
+.portfolio-filter:focus-visible,.portfolio-card:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.portfolio-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.portfolio-card{position:relative;height:245px;margin:0;border:1px solid rgba(201,154,69,.55);border-radius:7px;overflow:hidden;background:#111;cursor:pointer}
 .portfolio-card img{width:100%;height:100%;object-fit:cover}
-.portfolio-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.9),transparent 58%)}
+.portfolio-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.9),transparent 58%);pointer-events:none}
 .portfolio-card .cap{position:absolute;z-index:2;left:14px;bottom:12px;font:500 17px Georgia,serif}.portfolio-card .cap small{display:block;color:var(--red);font:10px Arial;margin-top:3px}
 
 .about-section{padding:35px 0 24px;border-bottom:1px solid #191919}
@@ -91,7 +95,7 @@ footer{padding:20px 0;color:#81796f;font-size:13px}.footer-row{display:flex;just
   .navlinks.open{display:flex}.navlinks a{padding:13px 0}
   .hero{min-height:620px}.hero-content{padding:92px 0 58px}.hero h1{font-size:64px}.hero-text{font-size:19px}.hero-actions{display:grid}.btn{width:100%}
   .services-grid{grid-template-columns:1fr 1fr}.services-grid article{border-bottom:1px solid var(--line)}.services-grid article:nth-child(even){border-right:0}
-  .portfolio-layout{grid-template-columns:1fr}.portfolio-cards{grid-template-columns:1fr 1fr}.portfolio-card{height:220px}
+  .portfolio-cards{grid-template-columns:1fr 1fr}.portfolio-card{height:220px}
   .about-grid,.contact-grid{grid-template-columns:1fr}.about-brand{border-right:0;border-bottom:1px solid var(--line);padding:0 0 24px}.contact-details{border-left:0;padding-left:0}
   .qr-grid{grid-template-columns:1fr 1fr}.qr-card img{width:110px;height:110px}
 }
