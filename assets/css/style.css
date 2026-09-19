@@ -32,7 +32,7 @@ img{display:block;max-width:100%}
 .social-top a{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:700}
 .nav-toggle{display:none;background:none;border:1px solid var(--red);color:#fff;border-radius:8px;padding:8px 12px;font-size:20px}
 
-.hero{min-height:610px;position:relative;background:radial-gradient(circle at 78% 38%,rgba(160,9,17,.38),transparent 34%),linear-gradient(120deg,#050505 15%,#1a0d0e 70%,#080808);border-bottom:1px solid var(--red)}
+.hero{min-height:610px;position:relative;background:#111 url('../images/IMG_8793.jpg') center 48%/cover no-repeat;border-bottom:1px solid var(--red)}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.78) 32%,rgba(0,0,0,.16) 69%,rgba(0,0,0,.42) 100%),linear-gradient(0deg,rgba(0,0,0,.35),transparent)}
 .hero-content{position:relative;padding:110px 0 90px}
 .kicker{font-size:17px;letter-spacing:.25em;color:var(--gold2);margin:0 0 18px}.kicker i{color:var(--red);font-style:normal}
