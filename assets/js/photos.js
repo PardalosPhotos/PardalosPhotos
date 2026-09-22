@@ -83,7 +83,7 @@ window.PARDALOS_BAPTISM_NUMBERS = [10, 23, 26, 32, 36, 37, 39];
 // Άλμπουμ γάμου. Ο τίτλος μπορεί να αλλάξει χωρίς να αλλάξουν οι φωτογραφίες.
 window.PARDALOS_ALBUMS = {
   "wedding-1": {
-    "title": "ΓΑΜΟΣ 1",
+    "title": "ΑΛΜΠΟΥΜ 1",
     "numbers": [
       1,
       2,
@@ -121,7 +121,7 @@ window.PARDALOS_ALBUMS = {
     ]
   },
   "wedding-2": {
-    "title": "ΓΑΜΟΣ 2",
+    "title": "ΑΛΜΠΟΥΜ 2",
     "files": [
       "wedding-2/B05A1603 copy.jpg",
       "wedding-2/B05A1605 copy.jpg",
@@ -148,7 +148,7 @@ window.PARDALOS_ALBUMS = {
     ]
   },
   "wedding-3": {
-    "title": "ΓΑΜΟΣ 3",
+    "title": "ΑΛΜΠΟΥΜ 3",
     "files": [
       "wedding-3/B05A4268 copy.jpg",
       "wedding-3/B05A4284 copy.jpg",
@@ -167,15 +167,47 @@ window.PARDALOS_ALBUMS = {
     ]
   },
   "wedding-4": {
-    "title": "ΓΑΜΟΣ 4",
+    "title": "ΑΛΜΠΟΥΜ 4",
     "files": []
   },
   "wedding-5": {
-    "title": "ΓΑΜΟΣ 5",
+    "title": "ΑΛΜΠΟΥΜ 5",
     "files": []
   },
   "wedding-6": {
-    "title": "ΓΑΜΟΣ 6",
+    "title": "ΑΛΜΠΟΥΜ 6",
+    "files": []
+  },
+  "baptism-1": {
+    "title": "ΑΛΜΠΟΥΜ 1",
+    "numbers": [
+      10,
+      23,
+      26,
+      32,
+      36,
+      37,
+      39
+    ]
+  },
+  "baptism-2": {
+    "title": "ΑΛΜΠΟΥΜ 2",
+    "files": []
+  },
+  "baptism-3": {
+    "title": "ΑΛΜΠΟΥΜ 3",
+    "files": []
+  },
+  "baptism-4": {
+    "title": "ΑΛΜΠΟΥΜ 4",
+    "files": []
+  },
+  "baptism-5": {
+    "title": "ΑΛΜΠΟΥΜ 5",
+    "files": []
+  },
+  "baptism-6": {
+    "title": "ΑΛΜΠΟΥΜ 6",
     "files": []
   }
 };
