@@ -543,5 +543,17 @@ window.PARDALOS_ALBUMS = {
       "baptism-6/Σταύρος - Άνθιμος (6).jpg",
       "baptism-6/Σταύρος - Άνθιμος (9).jpg"
     ]
+  },
+  "baptism-7": {
+    "title": "ΑΛΜΠΟΥΜ 7",
+    "files": []
+  },
+  "baptism-8": {
+    "title": "ΑΛΜΠΟΥΜ 8",
+    "files": []
+  },
+  "baptism-9": {
+    "title": "ΑΛΜΠΟΥΜ 9",
+    "files": []
   }
 };
