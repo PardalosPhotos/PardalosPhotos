@@ -40,34 +40,142 @@ window.PARDALOS_PHOTOS = [
   "037_IMG-413a1bbf53dd64d3eab8182609c9f1f1-V.jpg",
   "038_IMG-8dc9a5d6dfee1942b535442eeffd7efa-V.jpg",
   "039_IMG-0115e4bbfec034bd9defd1a41cf2b215-V.jpg",
-  "040_IMG-270cbbef8401ef886ca5606edc50591a-V.jpg"
+  "040_IMG-270cbbef8401ef886ca5606edc50591a-V.jpg",
+  "wedding-2/B05A1603 copy.jpg",
+  "wedding-2/B05A1605 copy.jpg",
+  "wedding-2/B05A1606 copy.jpg",
+  "wedding-2/B05A1621 copy.jpg",
+  "wedding-2/B05A1632 copy.jpg",
+  "wedding-2/B05A1646 copy.jpg",
+  "wedding-2/B05A1684 copy.jpg",
+  "wedding-2/B05A1758 copy.jpg",
+  "wedding-2/B05A1768 copy.jpg",
+  "wedding-2/B05A1782 copy.jpg",
+  "wedding-2/B05A1816 copy.jpg",
+  "wedding-2/B05A1832 copy.jpg",
+  "wedding-2/B05A1850 copy.jpg",
+  "wedding-2/B05A1856 copy.jpg",
+  "wedding-2/B05A1913 copy.jpg",
+  "wedding-2/B05A1934 copy.jpg",
+  "wedding-2/B05A1943 copy.jpg",
+  "wedding-2/B05A1947 copy.jpg",
+  "wedding-2/B05A1970 copy.jpg",
+  "wedding-2/B05A1979 copy.jpg",
+  "wedding-2/B05A2063 copy.jpg",
+  "wedding-2/B05A2064 copy.jpg",
+  "wedding-3/B05A4268 copy.jpg",
+  "wedding-3/B05A4284 copy.jpg",
+  "wedding-3/B05A4307 copy.jpg",
+  "wedding-3/B05A4439 copy.jpg",
+  "wedding-3/B05A4445 copy.jpg",
+  "wedding-3/B05A4451 copy.jpg",
+  "wedding-3/B05A4472 copy.jpg",
+  "wedding-3/B05A4489 copy.jpg",
+  "wedding-3/B05A4510 copy.jpg",
+  "wedding-3/B05A4531 copy.jpg",
+  "wedding-3/B05A4539 copy.jpg",
+  "wedding-3/B05A4542 copy.jpg",
+  "wedding-3/IMG_6045 copy.jpg",
+  "wedding-3/IMG_6104.jpg"
 ];
 window.PARDALOS_BAPTISM_NUMBERS = [10, 23, 26, 32, 36, 37, 39];
 
 // Άλμπουμ γάμου. Ο τίτλος μπορεί να αλλάξει χωρίς να αλλάξουν οι φωτογραφίες.
 window.PARDALOS_ALBUMS = {
   "wedding-1": {
-    title: "ΓΑΜΟΣ 1",
-    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 27, 28, 29, 30, 31, 33, 34, 35, 38, 40]
+    "title": "ΓΑΜΟΣ 1",
+    "numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      24,
+      25,
+      27,
+      28,
+      29,
+      30,
+      31,
+      33,
+      34,
+      35,
+      38,
+      40
+    ]
   },
   "wedding-2": {
-    title: "ΓΑΜΟΣ 2",
-    numbers: []
+    "title": "ΓΑΜΟΣ 2",
+    "files": [
+      "wedding-2/B05A1603 copy.jpg",
+      "wedding-2/B05A1605 copy.jpg",
+      "wedding-2/B05A1606 copy.jpg",
+      "wedding-2/B05A1621 copy.jpg",
+      "wedding-2/B05A1632 copy.jpg",
+      "wedding-2/B05A1646 copy.jpg",
+      "wedding-2/B05A1684 copy.jpg",
+      "wedding-2/B05A1758 copy.jpg",
+      "wedding-2/B05A1768 copy.jpg",
+      "wedding-2/B05A1782 copy.jpg",
+      "wedding-2/B05A1816 copy.jpg",
+      "wedding-2/B05A1832 copy.jpg",
+      "wedding-2/B05A1850 copy.jpg",
+      "wedding-2/B05A1856 copy.jpg",
+      "wedding-2/B05A1913 copy.jpg",
+      "wedding-2/B05A1934 copy.jpg",
+      "wedding-2/B05A1943 copy.jpg",
+      "wedding-2/B05A1947 copy.jpg",
+      "wedding-2/B05A1970 copy.jpg",
+      "wedding-2/B05A1979 copy.jpg",
+      "wedding-2/B05A2063 copy.jpg",
+      "wedding-2/B05A2064 copy.jpg"
+    ]
   },
   "wedding-3": {
-    title: "ΓΑΜΟΣ 3",
-    numbers: []
+    "title": "ΓΑΜΟΣ 3",
+    "files": [
+      "wedding-3/B05A4268 copy.jpg",
+      "wedding-3/B05A4284 copy.jpg",
+      "wedding-3/B05A4307 copy.jpg",
+      "wedding-3/B05A4439 copy.jpg",
+      "wedding-3/B05A4445 copy.jpg",
+      "wedding-3/B05A4451 copy.jpg",
+      "wedding-3/B05A4472 copy.jpg",
+      "wedding-3/B05A4489 copy.jpg",
+      "wedding-3/B05A4510 copy.jpg",
+      "wedding-3/B05A4531 copy.jpg",
+      "wedding-3/B05A4539 copy.jpg",
+      "wedding-3/B05A4542 copy.jpg",
+      "wedding-3/IMG_6045 copy.jpg",
+      "wedding-3/IMG_6104.jpg"
+    ]
   },
   "wedding-4": {
-    title: "ΓΑΜΟΣ 4",
-    numbers: []
+    "title": "ΓΑΜΟΣ 4",
+    "files": []
   },
   "wedding-5": {
-    title: "ΓΑΜΟΣ 5",
-    numbers: []
+    "title": "ΓΑΜΟΣ 5",
+    "files": []
   },
   "wedding-6": {
-    title: "ΓΑΜΟΣ 6",
-    numbers: []
+    "title": "ΓΑΜΟΣ 6",
+    "files": []
   }
 };
