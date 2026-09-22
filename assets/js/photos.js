@@ -49,5 +49,25 @@ window.PARDALOS_ALBUMS = {
   "wedding-1": {
     title: "ΓΑΜΟΣ 1",
     numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 27, 28, 29, 30, 31, 33, 34, 35, 38, 40]
+  },
+  "wedding-2": {
+    title: "ΓΑΜΟΣ 2",
+    numbers: []
+  },
+  "wedding-3": {
+    title: "ΓΑΜΟΣ 3",
+    numbers: []
+  },
+  "wedding-4": {
+    title: "ΓΑΜΟΣ 4",
+    numbers: []
+  },
+  "wedding-5": {
+    title: "ΓΑΜΟΣ 5",
+    numbers: []
+  },
+  "wedding-6": {
+    title: "ΓΑΜΟΣ 6",
+    numbers: []
   }
 };
