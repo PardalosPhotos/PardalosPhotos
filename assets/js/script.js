@@ -10,11 +10,16 @@ if (gallery) {
   const baptismNumbers = new Set(window.PARDALOS_BAPTISM_NUMBERS || []);
   const category = gallery.dataset.category;
   const albumKey = gallery.dataset.album;
-  const albumNumbers = albumKey && window.PARDALOS_ALBUMS?.[albumKey]?.numbers;
-  const allowedAlbumNumbers = Array.isArray(albumNumbers) ? new Set(albumNumbers) : null;
+  const album = albumKey && window.PARDALOS_ALBUMS?.[albumKey];
+  const allowedAlbumNumbers = Array.isArray(album?.numbers) ? new Set(album.numbers) : null;
+  const allowedAlbumFiles = Array.isArray(album?.files) ? new Set(album.files) : null;
   const selected = photos
-    .map(name => ({ name, number: Number(name.slice(0, 3)) }))
+    .map(name => {
+      const filename = name.split('/').pop();
+      return { name, number: Number(filename.slice(0, 3)) };
+    })
     .filter(item => {
+      if (allowedAlbumFiles) return allowedAlbumFiles.has(item.name);
       if (allowedAlbumNumbers) return allowedAlbumNumbers.has(item.number);
       return category === 'baptism' ? baptismNumbers.has(item.number) : !baptismNumbers.has(item.number);
     });
@@ -23,16 +28,17 @@ if (gallery) {
   if (count) count.textContent = selected.length + ' φωτογραφίες';
 
   const fragment = document.createDocumentFragment();
-  selected.forEach(item => {
+  selected.forEach((item, index) => {
+    const displayNumber = Number.isFinite(item.number) ? String(item.number).padStart(3, '0') : String(index + 1).padStart(3, '0');
     const card = document.createElement('figure');
     card.className = 'portfolio-card';
     card.tabIndex = 0;
     card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', 'Άνοιγμα φωτογραφίας ' + String(item.number).padStart(3, '0') + ' — ' + categoryLabels[category]);
+    card.setAttribute('aria-label', 'Άνοιγμα φωτογραφίας ' + displayNumber + ' — ' + categoryLabels[category]);
 
     const img = document.createElement('img');
     img.src = photoPath(item.name);
-    img.alt = categoryLabels[category] + ' — φωτογραφία ' + String(item.number).padStart(3, '0');
+    img.alt = categoryLabels[category] + ' — φωτογραφία ' + displayNumber;
     img.loading = 'lazy';
     img.decoding = 'async';
     img.onerror = () => card.remove();
@@ -41,7 +47,7 @@ if (gallery) {
     cap.className = 'cap';
     cap.textContent = categoryLabels[category];
     const number = document.createElement('small');
-    number.textContent = String(item.number).padStart(3, '0');
+    number.textContent = displayNumber;
     cap.appendChild(number);
     card.append(img, cap);
     fragment.appendChild(card);
