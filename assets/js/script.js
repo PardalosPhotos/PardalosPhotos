@@ -46,6 +46,12 @@ if (gallery) {
     card.append(img, cap);
     fragment.appendChild(card);
   });
+  if (!selected.length) {
+    const empty = document.createElement('div');
+    empty.className = 'album-empty';
+    empty.innerHTML = '<strong>Το άλμπουμ είναι έτοιμο.</strong><span>Οι φωτογραφίες θα προστεθούν σύντομα.</span>';
+    fragment.appendChild(empty);
+  }
   gallery.replaceChildren(fragment);
 
   function openLightbox(card) {
