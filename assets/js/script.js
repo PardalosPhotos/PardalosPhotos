@@ -9,9 +9,15 @@ if (gallery) {
   const photos = Array.isArray(window.PARDALOS_PHOTOS) ? window.PARDALOS_PHOTOS : [];
   const baptismNumbers = new Set(window.PARDALOS_BAPTISM_NUMBERS || []);
   const category = gallery.dataset.category;
+  const albumKey = gallery.dataset.album;
+  const albumNumbers = albumKey && window.PARDALOS_ALBUMS?.[albumKey]?.numbers;
+  const allowedAlbumNumbers = Array.isArray(albumNumbers) ? new Set(albumNumbers) : null;
   const selected = photos
     .map(name => ({ name, number: Number(name.slice(0, 3)) }))
-    .filter(item => category === 'baptism' ? baptismNumbers.has(item.number) : !baptismNumbers.has(item.number));
+    .filter(item => {
+      if (allowedAlbumNumbers) return allowedAlbumNumbers.has(item.number);
+      return category === 'baptism' ? baptismNumbers.has(item.number) : !baptismNumbers.has(item.number);
+    });
 
   const count = document.getElementById('gallery-count');
   if (count) count.textContent = selected.length + ' φωτογραφίες';
