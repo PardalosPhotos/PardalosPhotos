@@ -88,6 +88,9 @@ img{display:block;max-width:100%}
 .portfolio-card img{width:100%;height:100%;object-fit:cover}
 .portfolio-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.9),transparent 58%);pointer-events:none}
 .portfolio-card .cap{position:absolute;z-index:2;left:14px;bottom:12px;font:500 17px Georgia,serif}.portfolio-card .cap small{display:block;color:var(--red);font:10px Arial;margin-top:3px}
+.album-empty{grid-column:1/-1;min-height:260px;border:1px solid rgba(201,154,69,.35);border-radius:9px;background:linear-gradient(135deg,#171313,#0c0b0b);display:grid;place-content:center;text-align:center;padding:30px}
+.album-empty strong{font:500 30px Georgia,serif;color:var(--gold2)}
+.album-empty span{display:block;color:var(--muted);margin-top:8px}
 .gallery-contact{margin-top:42px;padding:28px;border:1px solid var(--line);border-radius:9px;text-align:center}
 .gallery-contact p{margin:0 0 16px;color:var(--muted)}
 
