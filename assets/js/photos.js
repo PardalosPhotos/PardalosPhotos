@@ -260,7 +260,11 @@ window.PARDALOS_PHOTOS = [
   "baptism-6/Σταύρος - Άνθιμος (135).jpg",
   "baptism-6/Σταύρος - Άνθιμος (140).jpg",
   "baptism-6/Σταύρος - Άνθιμος (173).jpg",
-  "baptism-6/Σταύρος - Άνθιμος (183).jpg"
+  "baptism-6/Σταύρος - Άνθιμος (183).jpg",
+  "baptism-6/Σταύρος - Άνθιμος (187).jpg",
+  "baptism-6/Σταύρος - Άνθιμος (189).jpg",
+  "baptism-6/Σταύρος - Άνθιμος (192).jpg",
+  "baptism-6/Σταύρος - Άνθιμος (198).jpg"
 ];
 window.PARDALOS_BAPTISM_NUMBERS = [10, 23, 26, 32, 36, 37, 39];
 
@@ -573,7 +577,11 @@ window.PARDALOS_ALBUMS = {
       "baptism-6/Σταύρος - Άνθιμος (135).jpg",
       "baptism-6/Σταύρος - Άνθιμος (140).jpg",
       "baptism-6/Σταύρος - Άνθιμος (173).jpg",
-      "baptism-6/Σταύρος - Άνθιμος (183).jpg"
+      "baptism-6/Σταύρος - Άνθιμος (183).jpg",
+      "baptism-6/Σταύρος - Άνθιμος (187).jpg",
+      "baptism-6/Σταύρος - Άνθιμος (189).jpg",
+      "baptism-6/Σταύρος - Άνθιμος (192).jpg",
+      "baptism-6/Σταύρος - Άνθιμος (198).jpg"
     ]
   },
   "baptism-7": {
