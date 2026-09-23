@@ -494,7 +494,19 @@ window.PARDALOS_PHOTOS = [
   "travel-3/DJI_20260902113901_0044_D_enhanced_2x.jpg",
   "travel-3/DJI_20260902171958_0102_D_enhanced_2x.jpg",
   "travel-3/DJI_20260902181853_0105_D_enhanced_2x.jpg",
-  "travel-3/exec-da204d57-79b8-4217-99ce-bc9c3f342036.jpg"
+  "travel-3/exec-da204d57-79b8-4217-99ce-bc9c3f342036.jpg",
+  "love-story-1/B05A7954 copy.jpg",
+  "love-story-1/IMG_9865 copy.jpg",
+  "love-story-1/Lahsana (115) copy.jpg",
+  "love-story-1/Lahsana (121) copy.jpg",
+  "love-story-1/Lahsana (150) copy.jpg",
+  "love-story-1/Lahsana (24) copy.jpg",
+  "love-story-1/Lahsana (38) copy.jpg",
+  "love-story-1/Lahsana (53) copy.jpg",
+  "love-story-1/Lahsana (63) copy.jpg",
+  "love-story-1/Lahsana (9) copy.jpg",
+  "love-story-1/Lahsana (93) copy.jpg",
+  "love-story-1/Lahsana-sunset-composite-v2-preview copy.jpg"
 ];
 window.PARDALOS_BAPTISM_NUMBERS = [10, 23, 26, 32, 36, 37, 39];
 
@@ -1077,7 +1089,20 @@ window.PARDALOS_ALBUMS = {
   },
   "love-story-1": {
     "title": "ΑΛΜΠΟΥΜ 1",
-    "files": []
+    "files": [
+      "love-story-1/B05A7954 copy.jpg",
+      "love-story-1/IMG_9865 copy.jpg",
+      "love-story-1/Lahsana (115) copy.jpg",
+      "love-story-1/Lahsana (121) copy.jpg",
+      "love-story-1/Lahsana (150) copy.jpg",
+      "love-story-1/Lahsana (24) copy.jpg",
+      "love-story-1/Lahsana (38) copy.jpg",
+      "love-story-1/Lahsana (53) copy.jpg",
+      "love-story-1/Lahsana (63) copy.jpg",
+      "love-story-1/Lahsana (9) copy.jpg",
+      "love-story-1/Lahsana (93) copy.jpg",
+      "love-story-1/Lahsana-sunset-composite-v2-preview copy.jpg"
+    ]
   },
   "love-story-2": {
     "title": "ΑΛΜΠΟΥΜ 2",
