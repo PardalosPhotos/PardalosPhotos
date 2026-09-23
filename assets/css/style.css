@@ -99,39 +99,24 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 
 
 /* Album thumbnail hover preview */
-.portfolio-card{position:relative;cursor:zoom-in}
-.album-hover-preview{
-  position:fixed;
-  left:0;
-  top:0;
-  z-index:90;
-  padding:8px;
-  background:#fff;
-  box-shadow:0 24px 70px rgba(48,42,39,.38);
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-  transform:scale(.96);
-  transition:opacity .18s ease,transform .18s ease,visibility 0s linear .18s;
+.portfolio-card{
+  position:relative;
+  cursor:zoom-in;
+  background:#e9e2da;
 }
-.album-hover-preview.open{
-  opacity:1;
-  visibility:visible;
-  transform:scale(1);
-  transition-delay:0s;
+.portfolio-card img{
+  transition:filter .18s ease;
 }
-.album-hover-preview img{
-  display:block;
-  width:auto;
-  height:auto;
-  max-width:none;
-  max-height:none;
-  object-fit:contain;
+@media (hover:hover) and (pointer:fine){
+  .portfolio-card:hover img,
+  .portfolio-card:focus-visible img{
+    object-fit:contain;
+    filter:brightness(1.02);
+  }
 }
 @media (hover:none),(pointer:coarse){
-  .album-hover-preview{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  .album-hover-preview{transition:none}
+  .portfolio-card img{
+    object-fit:contain;
+  }
 }
 .lightbox img{object-fit:contain}

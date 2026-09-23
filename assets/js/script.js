@@ -60,70 +60,6 @@ if (gallery) {
   }
   gallery.replaceChildren(fragment);
 
-  // Album hover preview
-  let hideHoverPreview = () => {};
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const preview = document.createElement('div');
-    preview.className = 'album-hover-preview';
-    preview.setAttribute('aria-hidden', 'true');
-    const previewImage = document.createElement('img');
-    preview.appendChild(previewImage);
-    document.body.appendChild(preview);
-
-    function placeHoverPreview(card) {
-      const naturalWidth = previewImage.naturalWidth || 1;
-      const naturalHeight = previewImage.naturalHeight || 1;
-      const maxWidth = Math.min(window.innerWidth * 0.64, 1050);
-      const maxHeight = window.innerHeight * 0.76;
-      const scale = Math.min(maxWidth / naturalWidth, maxHeight / naturalHeight);
-      const width = Math.max(280, naturalWidth * scale);
-      const height = width * naturalHeight / naturalWidth;
-      previewImage.style.width = Math.min(width, maxWidth) + 'px';
-      previewImage.style.height = Math.min(height, maxHeight) + 'px';
-
-      requestAnimationFrame(() => {
-        const cardRect = card.getBoundingClientRect();
-        const previewRect = preview.getBoundingClientRect();
-        const gap = 18;
-        const margin = 18;
-        const opensRight = cardRect.left + cardRect.width / 2 < window.innerWidth / 2;
-        let left = opensRight
-          ? cardRect.right + gap
-          : cardRect.left - previewRect.width - gap;
-        if (left < margin || left + previewRect.width > window.innerWidth - margin) {
-          left = (window.innerWidth - previewRect.width) / 2;
-        }
-        let top = cardRect.top + cardRect.height / 2 - previewRect.height / 2;
-        top = Math.max(margin, Math.min(top, window.innerHeight - previewRect.height - margin));
-        preview.style.left = Math.round(left) + 'px';
-        preview.style.top = Math.round(top) + 'px';
-      });
-    }
-
-    function showHoverPreview(card) {
-      const source = card.querySelector('img');
-      if (!source) return;
-      previewImage.onload = () => placeHoverPreview(card);
-      previewImage.src = source.currentSrc || source.src;
-      preview.classList.add('open');
-      if (previewImage.complete) placeHoverPreview(card);
-    }
-
-    hideHoverPreview = () => {
-      preview.classList.remove('open');
-      previewImage.onload = null;
-    };
-
-    gallery.querySelectorAll('.portfolio-card').forEach(card => {
-      card.addEventListener('mouseenter', () => showHoverPreview(card));
-      card.addEventListener('mouseleave', hideHoverPreview);
-      card.addEventListener('focusin', () => showHoverPreview(card));
-      card.addEventListener('focusout', hideHoverPreview);
-    });
-    window.addEventListener('scroll', hideHoverPreview, { passive: true });
-    window.addEventListener('resize', hideHoverPreview);
-  }
-
   const lightbox = document.querySelector('.lightbox');
   let activeCard = null;
 
@@ -138,7 +74,6 @@ if (gallery) {
 
   function openLightbox(card) {
     if (!lightbox) return;
-    hideHoverPreview();
     showPhoto(card);
     lightbox.classList.add('open');
     lightbox.querySelector('.lightbox-close')?.focus();
