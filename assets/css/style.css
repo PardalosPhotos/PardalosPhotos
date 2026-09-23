@@ -57,3 +57,11 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
   .lightbox .lightbox-next{right:6px}
   .lightbox img{max-width:calc(100vw - 55px);max-height:82vh}
 }
+
+/* Portfolio categories are available directly from every page. */
+.collection-links{border-top:1px solid var(--line);background:#eee6dc}
+.collection-links-inner{display:flex;align-items:center;justify-content:center;gap:clamp(14px,3vw,38px);min-height:52px;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.collection-links strong{font-size:10px;letter-spacing:.2em;color:var(--muted);font-weight:600}
+.collection-links a{display:inline-flex;align-items:center;min-height:52px;border-bottom:2px solid transparent;font-size:12px;font-weight:600;color:var(--ink)}
+.collection-links a:hover,.collection-links a:focus-visible,.collection-links a[aria-current="page"]{color:var(--rose);border-bottom-color:var(--rose)}
+@media(max-width:760px){.collection-links-inner{justify-content:flex-start;gap:22px}.collection-links strong{position:sticky;left:0;background:#eee6dc;padding-right:8px}.collection-links a{font-size:11px}}
