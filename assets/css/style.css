@@ -65,3 +65,6 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 .collection-links a{display:inline-flex;align-items:center;min-height:52px;border-bottom:2px solid transparent;font-size:12px;font-weight:600;color:var(--ink)}
 .collection-links a:hover,.collection-links a:focus-visible,.collection-links a[aria-current="page"]{color:var(--rose);border-bottom-color:var(--rose)}
 @media(max-width:760px){.collection-links-inner{justify-content:flex-start;gap:22px}.collection-links strong{position:sticky;left:0;background:#eee6dc;padding-right:8px}.collection-links a{font-size:11px}}
+
+/* Keep every portfolio category visible on narrow screens. */
+@media(max-width:760px){.collection-links-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 6px;justify-content:center;overflow:visible;white-space:normal;padding:8px 0}.collection-links strong{position:static;grid-column:1/-1;text-align:center;padding:0}.collection-links a{min-height:32px;justify-content:center;text-align:center;padding:0 2px;line-height:1.25}}
