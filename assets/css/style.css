@@ -111,7 +111,7 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
   margin:0;
   overflow:hidden;
   z-index:0;
-  background:var(--ivory,#f7f2ea);
+  background:transparent;
   cursor:zoom-in;
   transform:translateZ(0);
   transition:transform .22s ease,box-shadow .22s ease;
@@ -130,7 +130,7 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
   .portfolio-card:focus-visible{
     z-index:50;
     transform:scale(1.55);
-    box-shadow:0 22px 60px rgba(20,16,14,.48);
+    box-shadow:none;
     outline:none;
   }
   .portfolio-card:hover img,
