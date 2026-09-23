@@ -1,5 +1,5 @@
 const gallery = document.getElementById('gallery');
-const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ' };
+const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ', travel: 'TRAVEL', 'love-story': 'LOVE STORY', event: 'EVENT' };
 
 function photoPath(name) {
   return 'assets/images/' + encodeURIComponent(name).replace(/%2F/g, '/');
@@ -60,18 +60,38 @@ if (gallery) {
   }
   gallery.replaceChildren(fragment);
 
+  const lightbox = document.querySelector('.lightbox');
+  let activeCard = null;
+
+  function showPhoto(card) {
+    const source = card.querySelector('img');
+    const image = lightbox?.querySelector('img');
+    if (!source || !image) return;
+    image.src = source.src;
+    image.alt = source.alt;
+    activeCard = card;
+  }
+
   function openLightbox(card) {
-    const lightbox = document.querySelector('.lightbox');
     if (!lightbox) return;
-    const image = lightbox.querySelector('img');
-    image.src = card.querySelector('img').src;
-    image.alt = card.querySelector('img').alt;
+    showPhoto(card);
     lightbox.classList.add('open');
-    lightbox.querySelector('button').focus();
+    lightbox.querySelector('.lightbox-close')?.focus();
+  }
+
+  function movePhoto(direction) {
+    if (!lightbox?.classList.contains('open')) return;
+    const cards = Array.from(gallery.querySelectorAll('.portfolio-card'));
+    if (cards.length < 2) return;
+    const currentIndex = cards.indexOf(activeCard);
+    const nextIndex = (currentIndex + direction + cards.length) % cards.length;
+    showPhoto(cards[nextIndex]);
   }
 
   function closeLightbox() {
-    document.querySelector('.lightbox')?.classList.remove('open');
+    if (!lightbox?.classList.contains('open')) return;
+    lightbox.classList.remove('open');
+    if (activeCard?.isConnected) activeCard.focus();
   }
 
   gallery.addEventListener('click', event => {
@@ -86,12 +106,17 @@ if (gallery) {
     openLightbox(card);
   });
 
-  document.querySelector('.lightbox button')?.addEventListener('click', closeLightbox);
-  document.querySelector('.lightbox')?.addEventListener('click', event => {
-    if (event.target.classList.contains('lightbox')) closeLightbox();
+  lightbox?.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
+  lightbox?.querySelector('.lightbox-prev')?.addEventListener('click', () => movePhoto(-1));
+  lightbox?.querySelector('.lightbox-next')?.addEventListener('click', () => movePhoto(1));
+  lightbox?.addEventListener('click', event => {
+    if (event.target === lightbox) closeLightbox();
   });
   document.addEventListener('keydown', event => {
+    if (!lightbox?.classList.contains('open')) return;
     if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') { event.preventDefault(); movePhoto(-1); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); movePhoto(1); }
   });
 }
 

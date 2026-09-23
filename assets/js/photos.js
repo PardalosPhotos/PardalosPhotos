@@ -875,5 +875,41 @@ window.PARDALOS_ALBUMS = {
       "baptism-9/B05A2409 copy.jpg",
       "baptism-9/B05A2416 copy.jpg"
     ]
+  },
+  "travel-1": {
+    "title": "ΑΛΜΠΟΥΜ 1",
+    "files": []
+  },
+  "travel-2": {
+    "title": "ΑΛΜΠΟΥΜ 2",
+    "files": []
+  },
+  "travel-3": {
+    "title": "ΑΛΜΠΟΥΜ 3",
+    "files": []
+  },
+  "love-story-1": {
+    "title": "ΑΛΜΠΟΥΜ 1",
+    "files": []
+  },
+  "love-story-2": {
+    "title": "ΑΛΜΠΟΥΜ 2",
+    "files": []
+  },
+  "love-story-3": {
+    "title": "ΑΛΜΠΟΥΜ 3",
+    "files": []
+  },
+  "event-1": {
+    "title": "ΑΛΜΠΟΥΜ 1",
+    "files": []
+  },
+  "event-2": {
+    "title": "ΑΛΜΠΟΥΜ 2",
+    "files": []
+  },
+  "event-3": {
+    "title": "ΑΛΜΠΟΥΜ 3",
+    "files": []
   }
 };

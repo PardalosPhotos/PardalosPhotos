@@ -11,3 +11,49 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 .gallery-page{padding:60px 0;min-height:65vh}.gallery-back,.gallery-category-nav a{color:var(--rose)}.gallery-header h1{font:500 64px "Cormorant Garamond",serif}.gallery-category-nav{display:flex;gap:10px;flex-wrap:wrap}.gallery-category-nav a{border:1px solid var(--line);padding:10px 18px}.portfolio-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.portfolio-card{height:245px;overflow:hidden}.portfolio-card img{width:100%;height:100%;object-fit:cover}.album-empty{padding:40px;text-align:center}.gallery-contact{text-align:center;margin-top:35px}
 @media(max-width:1100px){.navrow{grid-template-columns:240px 1fr auto}.navlinks{gap:18px}.services-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr 1fr}.qr-grid{grid-column:1/-1}.portfolio-cards{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.shell{width:calc(100% - 30px)}.navrow{min-height:74px;grid-template-columns:1fr auto}.social-top{display:none}.nav-toggle{display:block}.logo-mark{font-size:43px}.logo-copy strong{font-size:29px}.logo-copy small{font-size:8px}.navlinks{display:none;position:absolute;top:74px;left:0;right:0;background:var(--ivory);padding:14px 20px;flex-direction:column;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px 0}.hero{min-height:650px}.hero-content{padding:130px 0 80px}.hero h1{font-size:68px}.hero-text{font-size:19px}.hero-actions{display:grid}.btn{width:100%}.services-grid{grid-template-columns:1fr}.portfolio-categories,.album-grid{grid-template-columns:1fr}.portfolio-category{min-height:430px}.about-grid,.contact-grid{grid-template-columns:1fr}.about-brand{border-right:0;border-bottom:1px solid var(--line);padding:0 0 30px}.contact-details{border-left:0;padding-left:0}.qr-grid{grid-template-columns:1fr 1fr}.portfolio-cards{grid-template-columns:1fr 1fr}.portfolio-card{height:220px}}
+
+
+/* Social links */
+.social-top a svg{display:block;width:20px;height:20px}
+.social-top a:hover,.social-top a:focus-visible{background:var(--rose);border-color:var(--rose);color:#fff}
+
+/* Clear contact actions on light and dark sections */
+.btn-gold{background:#514844;border-color:#514844;color:#fff;font-weight:600}
+.btn-gold:hover,.btn-gold:focus-visible{background:#302a27;border-color:#302a27;color:#fff}
+.contact-section .btn-gold{background:#ead7c0;border-color:#ead7c0;color:#302a27}
+.contact-section .btn-gold:hover,.contact-section .btn-gold:focus-visible{background:#fff;border-color:#fff;color:#302a27}
+
+/* Portfolio collections */
+.portfolio-categories{grid-template-columns:repeat(6,minmax(0,1fr))}
+.portfolio-categories>.portfolio-category{grid-column:span 2;min-height:380px}
+.portfolio-categories>.portfolio-category:nth-child(-n+2){grid-column:span 3;min-height:480px}
+.portfolio-categories .portfolio-category h3{font-size:clamp(42px,5vw,74px)}
+.portfolio-category.travel-cover{background-image:linear-gradient(135deg,#455b58,#98a89d)}
+.portfolio-category.love-story-cover{background-image:linear-gradient(135deg,#754e56,#bb8f94)}
+.portfolio-category.event-cover{background-image:linear-gradient(135deg,#494655,#888193)}
+
+/* Photo viewer controls */
+.lightbox .lightbox-close{right:16px;top:16px;width:46px;height:46px;display:grid;place-items:center;background:rgba(0,0,0,.56);border:1px solid rgba(255,255,255,.62);border-radius:50%;font-size:32px;line-height:1;z-index:2}
+.lightbox .lightbox-prev,.lightbox .lightbox-next{top:50%;width:52px;height:52px;display:grid;place-items:center;transform:translateY(-50%);background:rgba(0,0,0,.56);border:1px solid rgba(255,255,255,.7);border-radius:50%;font-size:42px;line-height:1;z-index:2}
+.lightbox .lightbox-prev{left:14px;right:auto}
+.lightbox .lightbox-next{right:14px}
+.lightbox button:hover,.lightbox button:focus-visible{background:#fff;color:#302a27}
+.lightbox img{max-width:calc(100vw - 100px);max-height:88vh;object-fit:contain}
+
+@media(max-width:1100px){
+  .portfolio-categories{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .portfolio-categories>.portfolio-category,.portfolio-categories>.portfolio-category:nth-child(-n+2){grid-column:span 1;min-height:390px}
+  .portfolio-categories>.portfolio-category:last-child{grid-column:span 2;min-height:330px}
+}
+@media(max-width:760px){
+  .navrow{grid-template-columns:1fr auto;column-gap:12px;row-gap:4px}
+  .social-top{display:flex;grid-column:1/-1;justify-content:center;gap:10px;padding-bottom:10px}
+  .social-top a{width:36px;height:36px}
+  .navlinks{top:100%}
+  .portfolio-categories{grid-template-columns:1fr}
+  .portfolio-categories>.portfolio-category,.portfolio-categories>.portfolio-category:nth-child(-n+2),.portfolio-categories>.portfolio-category:last-child{grid-column:auto;min-height:320px}
+  .lightbox .lightbox-prev,.lightbox .lightbox-next{width:40px;height:40px;font-size:32px}
+  .lightbox .lightbox-prev{left:6px}
+  .lightbox .lightbox-next{right:6px}
+  .lightbox img{max-width:calc(100vw - 55px);max-height:82vh}
+}
