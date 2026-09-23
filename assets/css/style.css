@@ -153,10 +153,11 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 @media(max-width:760px){
   .portfolio-cards{grid-template-columns:1fr 1fr}
   .portfolio-card{height:220px}
-  .portfolio-card img{object-fit:contain}
+  .portfolio-card img{object-fit:cover}
 }
 @media(max-width:480px){
-  .portfolio-cards{grid-template-columns:1fr}
+  .portfolio-cards{grid-template-columns:1fr 1fr}
+  .portfolio-card{height:190px}
 }
 @media (prefers-reduced-motion:reduce){
   .portfolio-card{transition:none}
