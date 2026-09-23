@@ -98,47 +98,67 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 @media(max-width:760px){.social-top a:nth-child(-n+2){width:44px;height:44px}.social-top a:nth-child(-n+2) svg{width:24px;height:24px}}
 
 
-/* Full-image album thumbnails */
+/* Enlarged full-photo preview on album thumbnail hover */
 .portfolio-cards{
-  display:block;
-  column-count:5;
-  column-gap:10px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  overflow:visible;
 }
 .portfolio-card{
   position:relative;
-  display:inline-block;
-  width:100%;
-  height:auto;
-  margin:0 0 10px;
+  height:245px;
+  margin:0;
   overflow:hidden;
-  break-inside:avoid;
-  background:#e9e2da;
+  z-index:0;
+  background:#302a27;
   cursor:zoom-in;
-  vertical-align:top;
+  transform:translateZ(0);
+  transition:transform .22s ease,box-shadow .22s ease;
+  transform-origin:center;
 }
 .portfolio-card img{
   display:block;
   width:100%;
-  height:auto;
-  object-fit:contain;
+  height:100%;
+  object-fit:cover;
   transform:none;
   filter:none;
 }
 @media (hover:hover) and (pointer:fine){
   .portfolio-card:hover,
   .portfolio-card:focus-visible{
-    box-shadow:0 10px 28px rgba(48,42,39,.22);
-    outline:2px solid rgba(181,135,119,.55);
-    outline-offset:-2px;
+    z-index:50;
+    transform:scale(1.55);
+    box-shadow:0 22px 60px rgba(20,16,14,.48);
+    outline:none;
   }
+  .portfolio-card:hover img,
+  .portfolio-card:focus-visible img{
+    object-fit:contain;
+  }
+  .portfolio-card:nth-child(5n+1),
+  .portfolio-card:nth-child(5n+2){transform-origin:left center}
+  .portfolio-card:nth-child(5n+4),
+  .portfolio-card:nth-child(5n+5){transform-origin:right center}
 }
 @media(max-width:1100px){
-  .portfolio-cards{column-count:3}
+  .portfolio-cards{grid-template-columns:repeat(3,1fr)}
+  @media (hover:hover) and (pointer:fine){
+    .portfolio-card{transform-origin:center}
+    .portfolio-card:nth-child(3n+1){transform-origin:left center}
+    .portfolio-card:nth-child(3n){transform-origin:right center}
+  }
 }
 @media(max-width:760px){
-  .portfolio-cards{column-count:2}
+  .portfolio-cards{grid-template-columns:1fr 1fr}
+  .portfolio-card{height:220px}
+  .portfolio-card img{object-fit:contain}
 }
 @media(max-width:480px){
-  .portfolio-cards{column-count:1}
+  .portfolio-cards{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .portfolio-card{transition:none}
 }
 .lightbox img{object-fit:contain}
