@@ -122,3 +122,14 @@ if (gallery) {
 
 document.querySelector('.nav-toggle')?.addEventListener('click', () => document.querySelector('.navlinks').classList.toggle('open'));
 document.querySelectorAll('.navlinks a').forEach(link => link.addEventListener('click', () => document.querySelector('.navlinks').classList.remove('open')));
+// A cover named after each collection URL overrides its current image.
+// Missing covers leave the existing photograph or gradient unchanged.
+document.querySelectorAll('a.portfolio-category[href]').forEach(card => {
+  const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
+  if (!match) return;
+  const extension = card.dataset.coverExt === 'png' ? 'png' : 'jpg';
+  const coverPath = `assets/images/covers/${match[1]}.${extension}`;
+  const cover = new Image();
+  cover.onload = () => { card.style.backgroundImage = `url("${coverPath}")`; };
+  cover.src = coverPath;
+});
