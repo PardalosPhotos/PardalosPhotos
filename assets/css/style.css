@@ -28,8 +28,8 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 .portfolio-categories>.portfolio-category{grid-column:span 2;min-height:380px}
 .portfolio-categories>.portfolio-category:nth-child(-n+2){grid-column:span 3;min-height:480px}
 .portfolio-categories .portfolio-category h3{font-size:clamp(42px,5vw,74px)}
-.portfolio-category.travel-cover{background-image:url('../images/travel-1/B05A0101_color_matched.jpg');background-position:center 58%}
-.portfolio-category.travel-cover.travel-album-cover-1{background-image:url('../images/travel-3/B05A0774%20copy.jpg');background-position:center 62%}
+.portfolio-category.travel-cover{background-image:url('../images/travel-covers/travel-cover.jpg');background-position:center 58%}
+.portfolio-category.travel-cover.travel-album-cover-1{background-image:url('../images/travel-covers/travel-album-1-cover.jpg');background-position:center 62%}
 .portfolio-category.travel-cover.travel-album-cover-2{background-image:url('../images/travel-covers/travel-album-2-cover.png');background-position:center 54%}
 .portfolio-category.travel-cover.travel-album-cover-3{background-image:url('../images/travel-covers/travel-album-3-cover.png');background-position:center 56%}
 .portfolio-category.love-story-cover{background-image:linear-gradient(135deg,#754e56,#bb8f94)}
