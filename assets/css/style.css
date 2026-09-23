@@ -98,25 +98,24 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 @media(max-width:760px){.social-top a:nth-child(-n+2){width:44px;height:44px}.social-top a:nth-child(-n+2) svg{width:24px;height:24px}}
 
 
-/* Album thumbnail hover preview */
+/* Full-image album thumbnails */
 .portfolio-card{
   position:relative;
   cursor:zoom-in;
   background:#e9e2da;
 }
 .portfolio-card img{
-  transition:filter .18s ease;
+  object-fit:contain;
+  transition:transform .18s ease,filter .18s ease;
 }
 @media (hover:hover) and (pointer:fine){
   .portfolio-card:hover img,
   .portfolio-card:focus-visible img{
-    object-fit:contain;
-    filter:brightness(1.02);
+    transform:scale(1.025);
+    filter:brightness(1.03);
   }
 }
-@media (hover:none),(pointer:coarse){
-  .portfolio-card img{
-    object-fit:contain;
-  }
+@media (prefers-reduced-motion:reduce){
+  .portfolio-card img{transition:none}
 }
 .lightbox img{object-fit:contain}
