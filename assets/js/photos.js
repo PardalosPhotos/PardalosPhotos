@@ -400,7 +400,31 @@ window.PARDALOS_PHOTOS = [
   "baptism-9/B05A2405 copy.jpg",
   "baptism-9/B05A2406 copy.jpg",
   "baptism-9/B05A2409 copy.jpg",
-  "baptism-9/B05A2416 copy.jpg"
+  "baptism-9/B05A2416 copy.jpg",
+  "travel-3/B05A0298 copy.jpg",
+  "travel-3/B05A0300 copy.jpg",
+  "travel-3/B05A0309 copy.jpg",
+  "travel-3/B05A0357 copy.jpg",
+  "travel-3/B05A0369 copy.jpg",
+  "travel-3/B05A0374 copy.jpg",
+  "travel-3/B05A0395 copy.jpg",
+  "travel-3/B05A0399 copy.jpg",
+  "travel-3/B05A0414 copy.jpg",
+  "travel-3/B05A0421 copy.jpg",
+  "travel-3/Media (5).png",
+  "travel-3/Media (6).jpg",
+  "travel-3/Media (6).png",
+  "travel-3/Media (7).jpg",
+  "travel-3/Media (7).png",
+  "travel-3/Media (8).jpg",
+  "travel-3/Media (8).png",
+  "travel-3/Media (9).jpg",
+  "travel-3/Media (9).png",
+  "travel-3/Media (10).jpg",
+  "travel-3/Media (10).png",
+  "travel-3/Media (11).jpg",
+  "travel-3/Media (11).png",
+  "travel-3/Media (12).jpg"
 ];
 window.PARDALOS_BAPTISM_NUMBERS = [10, 23, 26, 32, 36, 37, 39];
 
@@ -882,7 +906,32 @@ window.PARDALOS_ALBUMS = {
   },
   "travel-3": {
     "title": "ΑΛΜΠΟΥΜ 3",
-    "files": []
+    "files": [
+      "travel-3/B05A0298 copy.jpg",
+      "travel-3/B05A0300 copy.jpg",
+      "travel-3/B05A0309 copy.jpg",
+      "travel-3/B05A0357 copy.jpg",
+      "travel-3/B05A0369 copy.jpg",
+      "travel-3/B05A0374 copy.jpg",
+      "travel-3/B05A0395 copy.jpg",
+      "travel-3/B05A0399 copy.jpg",
+      "travel-3/B05A0414 copy.jpg",
+      "travel-3/B05A0421 copy.jpg",
+      "travel-3/Media (5).png",
+      "travel-3/Media (6).jpg",
+      "travel-3/Media (6).png",
+      "travel-3/Media (7).jpg",
+      "travel-3/Media (7).png",
+      "travel-3/Media (8).jpg",
+      "travel-3/Media (8).png",
+      "travel-3/Media (9).jpg",
+      "travel-3/Media (9).png",
+      "travel-3/Media (10).jpg",
+      "travel-3/Media (10).png",
+      "travel-3/Media (11).jpg",
+      "travel-3/Media (11).png",
+      "travel-3/Media (12).jpg"
+    ]
   },
   "love-story-1": {
     "title": "ΑΛΜΠΟΥΜ 1",
