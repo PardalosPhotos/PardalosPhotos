@@ -506,7 +506,18 @@ window.PARDALOS_PHOTOS = [
   "love-story-1/Lahsana (63) copy.jpg",
   "love-story-1/Lahsana (9) copy.jpg",
   "love-story-1/Lahsana (93) copy.jpg",
-  "love-story-1/Lahsana-sunset-composite-v2-preview copy.jpg"
+  "love-story-1/Lahsana-sunset-composite-v2-preview copy.jpg",
+  "love-story-2/Γιώργος - Ουρανία (1).jpg",
+  "love-story-2/Γιώργος - Ουρανία (2).jpg",
+  "love-story-2/Γιώργος - Ουρανία (3).jpg",
+  "love-story-2/Γιώργος - Ουρανία (4).jpg",
+  "love-story-2/Γιώργος - Ουρανία (5).jpg",
+  "love-story-2/Γιώργος - Ουρανία (6).jpg",
+  "love-story-2/Γιώργος - Ουρανία (7).jpg",
+  "love-story-2/Γιώργος - Ουρανία (8).jpg",
+  "love-story-2/Γιώργος - Ουρανία (9).jpg",
+  "love-story-2/Γιώργος - Ουρανία (10).jpg",
+  "love-story-2/Γιώργος - Ουρανία (11).jpg"
 ];
 window.PARDALOS_BAPTISM_NUMBERS = [10, 23, 26, 32, 36, 37, 39];
 
@@ -1106,7 +1117,19 @@ window.PARDALOS_ALBUMS = {
   },
   "love-story-2": {
     "title": "ΑΛΜΠΟΥΜ 2",
-    "files": []
+    "files": [
+      "love-story-2/Γιώργος - Ουρανία (1).jpg",
+      "love-story-2/Γιώργος - Ουρανία (2).jpg",
+      "love-story-2/Γιώργος - Ουρανία (3).jpg",
+      "love-story-2/Γιώργος - Ουρανία (4).jpg",
+      "love-story-2/Γιώργος - Ουρανία (5).jpg",
+      "love-story-2/Γιώργος - Ουρανία (6).jpg",
+      "love-story-2/Γιώργος - Ουρανία (7).jpg",
+      "love-story-2/Γιώργος - Ουρανία (8).jpg",
+      "love-story-2/Γιώργος - Ουρανία (9).jpg",
+      "love-story-2/Γιώργος - Ουρανία (10).jpg",
+      "love-story-2/Γιώργος - Ουρανία (11).jpg"
+    ]
   },
   "love-story-3": {
     "title": "ΑΛΜΠΟΥΜ 3",
