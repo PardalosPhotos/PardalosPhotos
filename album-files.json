@@ -1,0 +1,4 @@
+---
+layout: null
+---
+{{ site.static_files | map: 'path' | jsonify }}
