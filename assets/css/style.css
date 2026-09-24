@@ -34,6 +34,9 @@ footer{padding:22px 0;background:#2e2b29;color:#aaa09a;font-size:11px;letter-spa
 .portfolio-category.travel-cover.travel-album-cover-3{background-image:url('../images/covers/travel-3.png');background-position:center 56%}
 .portfolio-category.love-story-cover{background-image:linear-gradient(135deg,#754e56,#bb8f94)}
 .portfolio-category.event-cover{background-image:linear-gradient(135deg,#494655,#888193)}
+.services-grid .service-card{display:block;text-align:center;padding:38px 25px;background:var(--ivory);min-height:230px;transition:background-color .2s}
+.services-grid .service-card:hover,.services-grid .service-card:focus-visible{background:#eee5dc}
+.services-grid .service-card:focus-visible{outline:2px solid var(--rose);outline-offset:-3px}
 
 /* Photo viewer controls */
 .lightbox .lightbox-close{right:16px;top:16px;width:46px;height:46px;display:grid;place-items:center;background:rgba(0,0,0,.56);border:1px solid rgba(255,255,255,.62);border-radius:50%;font-size:32px;line-height:1;z-index:2}
