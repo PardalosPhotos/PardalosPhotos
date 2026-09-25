@@ -160,8 +160,10 @@ document.querySelectorAll('a.portfolio-category[href]').forEach(card => {
   if (!match) return;
   const extension = card.dataset.coverExt === 'png' ? 'png' : 'jpg';
   const coverPath = `assets/images/covers/${match[1]}.${extension}`;
+  const legacyCoverPath = `assets/images/covers/${match[1].replace(/-/g, " ")}.${extension}`;
   const cover = new Image();
-  cover.onload = () => { card.style.backgroundImage = `url("${coverPath}")`; };
+  cover.onload = () => { card.style.backgroundImage = `url("${cover.src}")`; };
+  cover.onerror = () => { if (cover.src.endsWith(coverPath)) cover.src = legacyCoverPath; };
   cover.src = coverPath;
 });
 
