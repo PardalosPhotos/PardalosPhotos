@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Pardalos Photos & Videos — φωτογραφία και βίντεο γάμου, βάπτισης και εκδηλώσεων στη Ρόδο.">
   <title>Pardalos Photos & Videos | Ρόδος</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=20260925-airbnb-real-estate-1">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260925-services-anchors-lang">
   <link rel="stylesheet" href="assets/css/analytics.css?v=20260925-1">
 </head>
 <body>
@@ -17,12 +17,16 @@
     </a>
     <button class="nav-toggle" aria-label="Μενού">☰</button>
     <nav class="navlinks">
-      <a class="active" href="#top">ΑΡΧΙΚΗ</a>
-      <a href="#services">ΥΠΗΡΕΣΙΕΣ</a>
+      <a class="active" href="#top" data-i18n="nav.home">ΑΡΧΙΚΗ</a>
+      <a href="#services" data-i18n="nav.services">ΥΠΗΡΕΣΙΕΣ</a>
       <a href="#portfolio">PORTFOLIO</a>
-      <a href="#about">ΣΧΕΤΙΚΑ</a>
-      <a href="#contact">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+      <a href="#about" data-i18n="nav.about">ΣΧΕΤΙΚΑ</a>
+      <a href="#contact" data-i18n="nav.contact">ΕΠΙΚΟΙΝΩΝΙΑ</a>
     </nav>
+    <div class="language-switcher" aria-label="Language">
+      <button type="button" data-lang-choice="el" aria-pressed="true">EL</button>
+      <button type="button" data-lang-choice="en" aria-pressed="false">EN</button>
+    </div>
     <div class="social-top">
       <a href="https://web.facebook.com/profile.php?id=61573114643566" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.6-1.5h1.6V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2H7.5v3h2.7V21h3.4Z"/></svg></a>
       <a href="https://instagram.com/tsabickos" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -47,13 +51,13 @@
 <section class="hero">
   <div class="hero-shade"></div>
   <div class="shell hero-content">
-    <p class="hero-intro">Ένα κλικ της φωτογραφικής μηχανής κρατάει κάποια κλάσματα του δευτερολέπτου... η στιγμή που τράβηξε παντοτινά... μπορείς να την δεις και να την εκτυπώσεις ξανά και ξανά και ξανά... δεν μπορείς όμως να ζήσεις στην ίδια στιγμή ποτέ ξανά... γι' αυτό ζήσε την στιγμή... και άφησε τα κλικ σε εμάς!!!</p>
-    <h1>Ιστορίες που<br><span>μένουν...</span></h1>
+    <p class="hero-intro" data-i18n="hero.intro">Ένα κλικ της φωτογραφικής μηχανής κρατάει κάποια κλάσματα του δευτερολέπτου... η στιγμή που τράβηξε παντοτινά... μπορείς να την δεις και να την εκτυπώσεις ξανά και ξανά και ξανά... δεν μπορείς όμως να ζήσεις στην ίδια στιγμή ποτέ ξανά... γι' αυτό ζήσε την στιγμή... και άφησε τα κλικ σε εμάς!!!</p>
+    <h1 data-i18n-html="hero.title">Ιστορίες που<br><span>μένουν...</span></h1>
     <div class="red-line"></div>
     <p class="hero-text">Our customers don't buy photos...<br>they buy moments... emotions...<br>feelings... happiness!!!</p>
     <div class="hero-actions">
-      <a class="btn btn-red" href="#portfolio">▣ &nbsp; ΔΕΙΤΕ ΤΟ PORTFOLIO</a>
-      <a class="btn btn-gold" href="#contact">✉ &nbsp; ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</a>
+      <a class="btn btn-red" href="#portfolio" data-i18n="hero.portfolio">▣ &nbsp; ΔΕΙΤΕ ΤΟ PORTFOLIO</a>
+      <a class="btn btn-gold" href="#contact" data-i18n="hero.contact">✉ &nbsp; ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</a>
     </div>
   </div>
 </section>
@@ -61,19 +65,19 @@
 <section class="services-section" id="services">
   <div class="shell">
     <div class="section-title center">
-      <small>ΟΛΟΚΛΗΡΩΜΕΝΕΣ ΥΠΗΡΕΣΙΕΣ</small>
-      <h2>ΑΠΟ ΤΗ ΣΤΙΓΜΗ ΣΤΗΝ ΑΝΑΜΝΗΣΗ</h2>
+      <small data-i18n="services.kicker">ΟΛΟΚΛΗΡΩΜΕΝΕΣ ΥΠΗΡΕΣΙΕΣ</small>
+      <h2 data-i18n="services.title">ΑΠΟ ΤΗ ΣΤΙΓΜΗ ΣΤΗΝ ΑΝΑΜΝΗΣΗ</h2>
       <span></span>
     </div>
     <div class="services-grid">
       <a class="service-card" href="wedding.html"><div class="ico">◎</div><h3>ΓΑΜΟΣ</h3><p>Ολοκληρωμένη κάλυψη γάμου με φωτογραφία και βίντεο.</p></a>
       <a class="service-card" href="baptism.html"><div class="ico">⌂</div><h3>ΒΑΠΤΙΣΗ</h3><p>Φυσικές οικογενειακές εικόνες και λεπτομέρειες μυστηρίου.</p></a>
-      <article><div class="ico">⌁</div><h3>VIDEO & DRONE</h3><p>Κινηματογραφική βιντεογράφηση και εντυπωσιακές εναέριες λήψεις.</p></article>
+      <a class="service-card" href="travel.html"><div class="ico">✈</div><h3>TRAVEL</h3><p data-i18n="services.travel">Εικόνες και ιστορίες από τα επαγγελματικά μας ταξίδια.</p></a>
       <a class="service-card" href="love-story.html"><div class="ico">♡</div><h3>LOVE STORY</h3><p>Ρομαντικές και couple φωτογραφίσεις σε όμορφα μέρη.</p></a>
       <article><div class="ico big">360°</div><h3>360 VIDEO BOOTH</h3><p>Μοναδική εμπειρία 360° για γάμους, πάρτι και εκδηλώσεις.</p></article>
-      <article><div class="ico">▧</div><h3>ΕΚΤΥΠΩΣΕΙΣ & ALBUMS</h3><p>Εκτυπώσεις, canvas, photobooks και albums υψηλής ποιότητας.</p></article>
+      <a class="service-card" href="airbnb-real-estate.html"><div class="ico">⌂</div><h3>AIRBNB – REAL ESTATE</h3><p data-i18n="services.realestate">Φωτογράφιση καταλυμάτων και ακινήτων στη Ρόδο.</p></a>
       <article><div class="ico">♙♙</div><h3>ΖΕΥΓΑΡΙ & ΟΙΚΟΓΕΝΕΙΑ</h3><p>Φωτογραφίσεις ζευγαριών και οικογενειών με φυσικό και αυθεντικό ύφος.</p></article>
-      <a class="service-card" href="travel.html"><div class="ico">✈</div><h3>TRAVEL</h3><p>Εικόνες και ιστορίες από τα επαγγελματικά μας ταξίδια.</p></a>
+      <article><div class="ico">⌁</div><h3>VIDEO & DRONE</h3><p>Κινηματογραφική βιντεογράφηση και εντυπωσιακές εναέριες λήψεις.</p></article>
     </div>
   </div>
 </section>
@@ -81,10 +85,10 @@
 <section class="portfolio-section" id="portfolio">
   <div class="shell">
     <div class="portfolio-intro">
-      <small>ΦΩΤΟΓΡΑΦΙΕΣ</small>
+      <small data-i18n="portfolio.kicker">ΦΩΤΟΓΡΑΦΙΕΣ</small>
       <h2>PORTFOLIO</h2>
       <span></span>
-      <p>Επιλέξτε μια συλλογή για να δείτε τις φωτογραφίες.</p>
+      <p data-i18n="portfolio.copy">Επιλέξτε μια συλλογή για να δείτε τις φωτογραφίες.</p>
     </div>
     <div class="portfolio-categories">
       <a class="portfolio-category wedding-cover" href="wedding.html">
@@ -134,12 +138,20 @@
         <span class="logo-mark">P</span>
         <span class="logo-copy"><strong>Pardalos</strong><small>PHOTOS & VIDEOS</small></span>
       </div>
-      <p>Αποτυπώνουμε τις πιο σημαντικές στιγμές της ζωής σας με επαγγελματισμό, δημιουργικότητα και αγάπη για τη λεπτομέρεια.</p>
+      <p data-i18n="about.copy">Αποτυπώνουμε τις πιο σημαντικές στιγμές της ζωής σας με επαγγελματισμό, δημιουργικότητα και αγάπη για τη λεπτομέρεια.</p>
     </div>
     <div class="about-copy">
-      <small>ΑΣ ΜΙΛΗΣΟΥΜΕ</small>
-      <h2>ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</h2>
-      <p>Γάμος, βάπτιση, οικογενειακή φωτογράφιση, video, drone ή 360 booth — πείτε μας τι σχεδιάζετε και θα οργανώσουμε μαζί την κάλυψη.</p>
+      <small data-i18n="about.kicker">ΣΧΕΤΙΚΑ</small>
+      <h2 data-i18n="about.title">ΒΡΕΙΤΕ ΜΑΣ ΣΤΗ ΡΟΔΟ</h2>
+      <p data-i18n="about.details">Θα μας βρείτε στην Π. Ράμμου 186, Αφάντου, Ρόδος. Για ραντεβού ή πληροφορίες μπορείτε να καλέσετε ή να στείλετε email.</p>
+      <div class="about-contact-list">
+        <p>⌖ &nbsp; Π. Ράμμου 186<br><span>Αφάντου, Ρόδος</span></p>
+        <p>☎ &nbsp; <a href="tel:+306946433743">694 643 3743</a></p>
+        <p>✉ &nbsp; <a href="mailto:pardalosphotos@hotmail.com">pardalosphotos@hotmail.com</a></p>
+      </div>
+      <div class="map-embed">
+        <iframe title="Pardalos Photos & Videos location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%CE%A0.%20%CE%A1%CE%AC%CE%BC%CE%BC%CE%BF%CF%85%20186%2C%20%CE%91%CF%86%CE%AC%CE%BD%CF%84%CE%BF%CF%85%2C%20%CE%A1%CF%8C%CE%B4%CE%BF%CF%82&output=embed"></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -147,7 +159,7 @@
 <section class="contact-section" id="contact">
   <div class="shell contact-grid">
     <div class="contact-left">
-      <h2>Ας δημιουργήσουμε<br>μαζί τις αναμνήσεις σας!</h2>
+      <h2 data-i18n-html="contact.title">Ας δημιουργήσουμε<br>μαζί τις αναμνήσεις σας!</h2>
     </div>
     <div class="contact-details">
       <p>⌖ &nbsp; Π. Ράμμου 186<br><span>Αφάντου, Ρόδος</span></p>
@@ -174,7 +186,7 @@
 <div class="lightbox"><button aria-label="Κλείσιμο">×</button><img alt=""></div>
 
 
-<script src="assets/js/script.js?v=20260924-auto1"></script>
+<script src="assets/js/script.js?v=20260925-services-anchors-lang"></script>
 <script src="assets/js/analytics.js?v=20260925-1"></script>
 </body>
 </html>
