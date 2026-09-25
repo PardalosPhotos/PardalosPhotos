@@ -212,3 +212,8 @@ html{scroll-padding-top:calc(var(--sticky-offset, 154px) + 26px)}
   .services-section,.portfolio-section{padding-top:48px}
   .map-embed iframe{height:280px}
 }
+
+/* Κλείδωμα γραμματοσειράς για όλη την ιστοσελίδα και όλες τις εσωτερικές σελίδες */
+body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaption {
+  font-family: inherit !important;
+}
