@@ -153,6 +153,133 @@ if (gallery) {
 
 document.querySelector('.nav-toggle')?.addEventListener('click', () => document.querySelector('.navlinks').classList.toggle('open'));
 document.querySelectorAll('.navlinks a').forEach(link => link.addEventListener('click', () => document.querySelector('.navlinks').classList.remove('open')));
+
+const topbar = document.querySelector('.topbar');
+function updateStickyOffset() {
+  document.documentElement.style.setProperty('--sticky-offset', `${Math.ceil(topbar?.getBoundingClientRect().height || 0)}px`);
+}
+function scrollToTarget(hash, pushState = true) {
+  updateStickyOffset();
+  const targetHash = hash || '#top';
+  if (targetHash === '#top') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (pushState) history.replaceState(null, '', `${location.pathname}${location.search}`);
+    return;
+  }
+  const target = document.getElementById(decodeURIComponent(targetHash.slice(1)));
+  if (!target) return;
+  const offset = Math.ceil(topbar?.getBoundingClientRect().height || 0) + 24;
+  const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
+  window.scrollTo({ top, behavior: 'smooth' });
+  if (pushState) history.pushState(null, '', targetHash);
+}
+
+updateStickyOffset();
+window.addEventListener('resize', updateStickyOffset);
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', event => {
+    const hash = link.getAttribute('href');
+    if (!hash || hash === '#') return;
+    event.preventDefault();
+    document.querySelector('.navlinks')?.classList.remove('open');
+    scrollToTarget(hash);
+  });
+});
+
+window.addEventListener('load', () => {
+  const isReload = performance.getEntriesByType?.('navigation')?.[0]?.type === 'reload';
+  const isHome = /(^|\/)(index\.html)?$/.test(location.pathname);
+  if (isHome && isReload && location.hash) {
+    history.replaceState(null, '', `${location.pathname}${location.search}`);
+    window.scrollTo(0, 0);
+    return;
+  }
+  if (location.hash) setTimeout(() => scrollToTarget(location.hash, false), 0);
+});
+
+window.addEventListener('hashchange', () => {
+  if (location.hash) scrollToTarget(location.hash, false);
+});
+
+const languageKey = 'pardalos-language-v1';
+const translations = {
+  el: {
+    'nav.home': 'ΑΡΧΙΚΗ',
+    'nav.services': 'ΥΠΗΡΕΣΙΕΣ',
+    'nav.about': 'ΣΧΕΤΙΚΑ',
+    'nav.contact': 'ΕΠΙΚΟΙΝΩΝΙΑ',
+    'hero.intro': 'Ένα κλικ της φωτογραφικής μηχανής κρατάει κάποια κλάσματα του δευτερολέπτου... η στιγμή που τράβηξε παντοτινά... μπορείς να την δεις και να την εκτυπώσεις ξανά και ξανά και ξανά... δεν μπορείς όμως να ζήσεις στην ίδια στιγμή ποτέ ξανά... γι\' αυτό ζήσε την στιγμή... και άφησε τα κλικ σε εμάς!!!',
+    'hero.title': 'Ιστορίες που<br><span>μένουν...</span>',
+    'hero.portfolio': '▣   ΔΕΙΤΕ ΤΟ PORTFOLIO',
+    'hero.contact': '✉   ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ',
+    'services.kicker': 'ΟΛΟΚΛΗΡΩΜΕΝΕΣ ΥΠΗΡΕΣΙΕΣ',
+    'services.title': 'ΑΠΟ ΤΗ ΣΤΙΓΜΗ ΣΤΗΝ ΑΝΑΜΝΗΣΗ',
+    'services.travel': 'Εικόνες και ιστορίες από τα επαγγελματικά μας ταξίδια.',
+    'services.realestate': 'Φωτογράφιση καταλυμάτων και ακινήτων στη Ρόδο.',
+    'portfolio.kicker': 'ΦΩΤΟΓΡΑΦΙΕΣ',
+    'portfolio.copy': 'Επιλέξτε μια συλλογή για να δείτε τις φωτογραφίες.',
+    'about.kicker': 'ΣΧΕΤΙΚΑ',
+    'about.title': 'ΒΡΕΙΤΕ ΜΑΣ ΣΤΗ ΡΟΔΟ',
+    'about.copy': 'Αποτυπώνουμε τις πιο σημαντικές στιγμές της ζωής σας με επαγγελματισμό, δημιουργικότητα και αγάπη για τη λεπτομέρεια.',
+    'about.details': 'Θα μας βρείτε στην Π. Ράμμου 186, Αφάντου, Ρόδος. Για ραντεβού ή πληροφορίες μπορείτε να καλέσετε ή να στείλετε email.',
+    'contact.title': 'Ας δημιουργήσουμε<br>μαζί τις αναμνήσεις σας!'
+  },
+  en: {
+    'nav.home': 'HOME',
+    'nav.services': 'SERVICES',
+    'nav.about': 'ABOUT',
+    'nav.contact': 'CONTACT',
+    'hero.intro': 'A camera click lasts only a fraction of a second. The moment it captures stays forever. You can see it and print it again and again, but you can never live the exact same moment twice. So live the moment and leave the clicks to us.',
+    'hero.title': 'Stories that<br><span>remain...</span>',
+    'hero.portfolio': '▣   VIEW PORTFOLIO',
+    'hero.contact': '✉   CONTACT US',
+    'services.kicker': 'COMPLETE SERVICES',
+    'services.title': 'FROM THE MOMENT TO THE MEMORY',
+    'services.travel': 'Images and stories from our professional trips.',
+    'services.realestate': 'Photography for Airbnb stays and real estate in Rhodes.',
+    'portfolio.kicker': 'PHOTOGRAPHY',
+    'portfolio.copy': 'Choose a collection to view the photographs.',
+    'about.kicker': 'ABOUT',
+    'about.title': 'FIND US IN RHODES',
+    'about.copy': 'We capture your most important moments with professionalism, creativity and attention to detail.',
+    'about.details': 'You can find us at P. Rammou 186, Afantou, Rhodes. For appointments or information, call us or send an email.',
+    'contact.title': 'Let\'s create<br>your memories together!'
+  }
+};
+function readLanguagePreference() {
+  try { return localStorage.getItem(languageKey); } catch { return null; }
+}
+function writeLanguagePreference(lang) {
+  try { localStorage.setItem(languageKey, lang); } catch { /* Storage may be unavailable. */ }
+}
+function preferredLanguage() {
+  const saved = readLanguagePreference();
+  if (saved === 'el' || saved === 'en') return saved;
+  const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  return browserLanguages.some(lang => String(lang).toLowerCase().startsWith('el')) ? 'el' : 'en';
+}
+function applyLanguage(lang, save = false) {
+  const dictionary = translations[lang] || translations.el;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(node => {
+    const value = dictionary[node.dataset.i18n];
+    if (value) node.textContent = value;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(node => {
+    const value = dictionary[node.dataset.i18nHtml];
+    if (value) node.innerHTML = value;
+  });
+  document.querySelectorAll('[data-lang-choice]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.langChoice === lang));
+  });
+  if (save) writeLanguagePreference(lang);
+}
+document.querySelectorAll('[data-lang-choice]').forEach(button => {
+  button.addEventListener('click', () => applyLanguage(button.dataset.langChoice, true));
+});
+applyLanguage(preferredLanguage());
+
 // A cover named after each collection URL overrides its current image.
 // Missing covers leave the existing photograph or gradient unchanged.
 document.querySelectorAll('a.portfolio-category[href]').forEach(card => {
@@ -189,4 +316,3 @@ if (albumCards.length) {
     });
   }).catch(() => {});
 }
-
