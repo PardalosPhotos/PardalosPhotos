@@ -9,7 +9,7 @@ async function publishedPhotos() {
   if (!Array.isArray(paths)) throw new Error('Invalid published photo list');
   const prefix = '/assets/images/';
   return paths
-    .filter(path => typeof path === 'string' && path.startsWith(prefix) && /\.(jpe?g|png|webp)$/i.test(path))
+    .filter(path => typeof path === 'string' && path.startsWith(prefix) && /\.(jpe?g|png|webp)\$/i.test(path))
     .map(path => path.slice(prefix.length));
 }
 
@@ -153,32 +153,29 @@ if (gallery) {
 
 document.querySelector('.nav-toggle')?.addEventListener('click', () => document.querySelector('.navlinks').classList.toggle('open'));
 document.querySelectorAll('.navlinks a').forEach(link => link.addEventListener('click', () => document.querySelector('.navlinks').classList.remove('open')));
-// A cover named after each collection URL overrides its current image.
-// Missing covers leave the existing photograph or gradient unchanged.
+
+// ΔΙΟΡΘΩΜΕΝΟ: Αποφυγή infinite loop όταν λείπουν τα εξώφυλλα
 document.querySelectorAll('a.portfolio-category[href]').forEach(card => {
-  const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
+  const match = /^([a-z0-9-]+)\.html\$/i.exec(card.getAttribute('href') || '');
   if (!match) return;
   const extension = card.dataset.coverExt === 'png' ? 'png' : 'jpg';
   const coverPath = `assets/images/covers/${match[1]}.${extension}`;
-  const legacyCoverPath = `assets/images/covers/${match[1].replace(/-/g, " ")}.${extension}`;
+  
   const cover = new Image();
   cover.onload = () => { card.style.backgroundImage = `url("${cover.src}")`; };
-  cover.onerror = () => { if (cover.src.endsWith(coverPath)) cover.src = legacyCoverPath; };
   cover.src = coverPath;
 });
 
-// Album cards use the same published file list as the galleries.
 const albumCards = document.querySelectorAll('.album-grid a.album-card[href]');
 if (albumCards.length) {
   publishedPhotos().then(files => {
     albumCards.forEach(card => {
-      const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
+      const match = /^([a-z0-9-]+)\.html\$/i.exec(card.getAttribute('href') || '');
       if (!match) return;
       const prefix = (card.dataset.folder || match[1]) + '/';
       const folderCount = files.filter(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/')).length;
       const label = card.querySelector('p');
       if (!label) return;
-      // The first wedding album also contains the original photos stored in assets/images.
       const originalCount = match[1] === 'wedding-1' ? Number.parseInt(label.textContent, 10) || 0 : 0;
       const count = originalCount + folderCount;
       label.textContent = count ? count + ' φωτογραφίες' : 'Έτοιμο για φωτογραφίες';
@@ -189,4 +186,3 @@ if (albumCards.length) {
     });
   }).catch(() => {});
 }
-
