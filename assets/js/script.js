@@ -1,5 +1,5 @@
 const gallery = document.getElementById('gallery');
-const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ', travel: 'TRAVEL', 'love-story': 'LOVE STORY', event: 'EVENT' };
+const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ', travel: 'TRAVEL', 'love-story': 'LOVE STORY', event: 'EVENT', 'airbnb-real-estate': 'AIRBNB – REAL ESTATE' };
 const photoOrder = new Intl.Collator('el', { numeric: true, sensitivity: 'base' });
 
 async function publishedPhotos() {
