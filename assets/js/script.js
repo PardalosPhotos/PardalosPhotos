@@ -78,7 +78,8 @@ if (gallery) {
   gallery.textContent = 'Φόρτωση φωτογραφιών…';
   publishedPhotos().then(files => {
     if (!albumKey) return renderGallery(legacyPhotos);
-    const prefix = albumKey + '/';
+    const folderKey = album?.folder || albumKey;
+    const prefix = folderKey + '/';
     const fromFolder = files
       .filter(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'))
       .sort(photoOrder.compare)
@@ -171,7 +172,7 @@ if (albumCards.length) {
     albumCards.forEach(card => {
       const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
       if (!match) return;
-      const prefix = match[1] + '/';
+      const prefix = (card.dataset.folder || match[1]) + '/';
       const folderCount = files.filter(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/')).length;
       const label = card.querySelector('p');
       if (!label) return;
@@ -179,6 +180,10 @@ if (albumCards.length) {
       const originalCount = match[1] === 'wedding-1' ? Number.parseInt(label.textContent, 10) || 0 : 0;
       const count = originalCount + folderCount;
       label.textContent = count ? count + ' φωτογραφίες' : 'Έτοιμο για φωτογραφίες';
+      if (!card.style.backgroundImage && folderCount) {
+        const first = files.find(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'));
+        if (first) card.style.backgroundImage = `url("${photoPath(first)}")`;
+      }
     });
   }).catch(() => {});
 }

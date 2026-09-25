@@ -1146,5 +1146,35 @@ window.PARDALOS_ALBUMS = {
   "event-3": {
     "title": "ΑΛΜΠΟΥΜ 3",
     "files": []
+  },
+  "airbnb-real-estate-1": {
+    "title": "AIRBNB – REAL ESTATE 1",
+    "folder": "airbnb-real-estate 1",
+    "files": []
+  },
+  "airbnb-real-estate-2": {
+    "title": "AIRBNB – REAL ESTATE 2",
+    "folder": "airbnb-real-estate 2",
+    "files": []
+  },
+  "airbnb-real-estate-3": {
+    "title": "AIRBNB – REAL ESTATE 3",
+    "folder": "airbnb-real-estate 3",
+    "files": []
+  },
+  "airbnb-real-estate-4": {
+    "title": "AIRBNB – REAL ESTATE 4",
+    "folder": "airbnb-real-estate 4",
+    "files": []
+  },
+  "airbnb-real-estate-5": {
+    "title": "AIRBNB – REAL ESTATE 5",
+    "folder": "airbnb-real-estate 5",
+    "files": []
+  },
+  "airbnb-real-estate-6": {
+    "title": "AIRBNB – REAL ESTATE 6",
+    "folder": "airbnb-real-estate 6",
+    "files": []
   }
 };
