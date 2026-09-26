@@ -382,6 +382,8 @@ function applyPageLanguage(lang) {
   document.querySelectorAll('.gallery-contact .btn').forEach(node => { node.textContent = english ? 'CONTACT US' : 'ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ'; });
   document.querySelectorAll('.gallery-contact p').forEach(node => { if (node.textContent.trim()) node.textContent = english ? 'Would you like to create your next story with us?' : 'Θέλετε να δημιουργήσουμε μαζί την επόμενη ιστορία σας;'; });
   document.querySelectorAll('.album-card small').forEach(node => { node.textContent = node.textContent.replace(/^(ΑΛΜΠΟΥΜ|ALBUM)/, english ? 'ALBUM' : 'ΑΛΜΠΟΥΜ'); });
+  document.querySelectorAll('.album-card h2').forEach(node => { const number = (node.textContent.match(/\d+/) || [''])[0]; node.textContent = english ? `ALBUM ${number}` : `ΑΛΜΠΟΥΜ ${number}`; });
+  document.querySelectorAll('.album-card p').forEach(node => { const count = node.dataset.photoCount || (node.textContent.match(/\d+/) || [''])[0]; if (count) node.textContent = count + (english ? ' photos' : ' φωτογραφίες'); else node.textContent = english ? 'Ready for photos' : 'Έτοιμο για φωτογραφίες'; });
   document.querySelectorAll('.album-card span').forEach(node => { node.textContent = english ? 'OPEN ALBUM →' : 'ΑΝΟΙΞΤΕ ΤΟ ΑΛΜΠΟΥΜ →'; });
 }
 function applyLanguage(lang, save = false) {
@@ -439,11 +441,19 @@ if (albumCards.length) {
       if (!label) return;
       const originalCount = match[1] === 'wedding-1' ? Number.parseInt(label.textContent, 10) || 0 : 0;
       const count = originalCount + folderCount;
-      label.textContent = count ? count + ' φωτογραφίες' : 'Έτοιμο για φωτογραφίες';
-      if (!card.style.backgroundImage && folderCount) {
-        const first = files.find(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'));
-        if (first) card.style.backgroundImage = `url("${photoPath(first)}")`;
-      }
+      label.dataset.photoCount = String(count);
+      label.textContent = count ? count + (document.documentElement.lang === 'en' ? ' photos' : ' φωτογραφίες') : (document.documentElement.lang === 'en' ? 'Ready for photos' : 'Έτοιμο για φωτογραφίες');
+      const first = files.find(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'));
+      const coverCandidates = [`assets/images/covers/${match[1]}.jpg`, `assets/images/covers/${match[1]}.png`];
+      let coverIndex = 0;
+      const cover = new Image();
+      const loadAlbumCover = () => {
+        if (coverIndex < coverCandidates.length) cover.src = coverCandidates[coverIndex++];
+        else if (first) card.style.backgroundImage = `url("${photoPath(first)}")`;
+      };
+      cover.onload = () => { card.style.backgroundImage = `url("${cover.src}")`; };
+      cover.onerror = loadAlbumCover;
+      loadAlbumCover();
     });
   }).catch(() => {});
 }
