@@ -349,6 +349,41 @@ function preferredLanguage() {
   const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
   return browserLanguages.some(lang => String(lang).toLowerCase().startsWith('el')) ? 'el' : 'en';
 }
+function applyPageLanguage(lang) {
+  const english = lang === 'en';
+  const galleryNode = document.getElementById('gallery');
+  const path = location.pathname.toLowerCase();
+  const category = galleryNode?.dataset.category || (path.match(/(wedding|baptism|travel|love-story|event|airbnb-real-estate)/)?.[1] || '');
+  const copy = {
+    wedding: { collection: english ? 'WEDDINGS' : 'ΓΑΜΟΣ', intro: english ? 'Choose an album to view the photographs.' : 'Επιλέξτε ένα άλμπουμ για να δείτε τις φωτογραφίες.', album: english ? 'Wedding moments through our lens.' : 'Στιγμές γάμου μέσα από τον φακό μας.' },
+    baptism: { collection: english ? 'BAPTISM' : 'ΒΑΠΤΙΣΗ', intro: english ? 'Choose an album to view the photographs.' : 'Επιλέξτε ένα άλμπουμ για να δείτε τις φωτογραφίες.', album: english ? 'Tender moments and family memories.' : 'Τρυφερές στιγμές και οικογενειακές αναμνήσεις.' },
+    travel: { collection: english ? 'TRAVEL' : 'TRAVEL', intro: english ? 'Images and stories from our professional journeys.' : 'Εικόνες και ιστορίες από τα επαγγελματικά μας ταξίδια.', album: english ? 'Places, people and stories from every journey.' : 'Τόποι, άνθρωποι και ιστορίες από κάθε ταξίδι.' },
+    'love-story': { collection: english ? 'LOVE STORY' : 'LOVE STORY', intro: english ? 'Choose an album to discover each love story.' : 'Επιλέξτε ένα άλμπουμ για να ανακαλύψετε κάθε ιστορία αγάπης.', album: english ? 'Romantic moments captured with care.' : 'Ρομαντικές στιγμές αποτυπωμένες με φροντίδα.' },
+    event: { collection: english ? 'EVENTS' : 'EVENT', intro: english ? 'Memories from events made to last.' : 'Αναμνήσεις από εκδηλώσεις που μένουν.', album: english ? 'Special moments from every event.' : 'Ξεχωριστές στιγμές από κάθε εκδήλωση.' },
+    'airbnb-real-estate': { collection: english ? 'AIRBNB – REAL ESTATE' : 'AIRBNB – REAL ESTATE', intro: english ? 'Photography that presents every property at its best.' : 'Φωτογραφίες που αναδεικνύουν κάθε ακίνητο.', album: english ? 'Property details through our lens.' : 'Οι λεπτομέρειες κάθε ακινήτου μέσα από τον φακό μας.' }
+  }[category];
+  if (!copy) return;
+  const header = document.querySelector('.gallery-header');
+  if (header) {
+    const title = header.querySelector('h1');
+    const intro = header.querySelector('div p');
+    if (title && !galleryNode) title.textContent = copy.collection;
+    if (intro) intro.textContent = copy.intro;
+  }
+  if (galleryNode) {
+    const albumIntro = document.querySelector('.gallery-header div p');
+    if (albumIntro) albumIntro.textContent = copy.album;
+  }
+  document.querySelectorAll('.gallery-back').forEach(node => {
+    node.textContent = galleryNode
+      ? (english ? '← Back to albums' : '← Πίσω στα άλμπουμ')
+      : (english ? '← Back to portfolio' : '← Πίσω στο portfolio');
+  });
+  document.querySelectorAll('.gallery-contact .btn').forEach(node => { node.textContent = english ? 'CONTACT US' : 'ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ'; });
+  document.querySelectorAll('.gallery-contact p').forEach(node => { if (node.textContent.trim()) node.textContent = english ? 'Would you like to create your next story with us?' : 'Θέλετε να δημιουργήσουμε μαζί την επόμενη ιστορία σας;'; });
+  document.querySelectorAll('.album-card small').forEach(node => { node.textContent = node.textContent.replace('ΑΛΜΠΟΥΜ','ALBUM'); });
+  document.querySelectorAll('.album-card span').forEach(node => { node.textContent = english ? 'OPEN ALBUM →' : 'ΑΝΟΙΞΤΕ ΤΟ ΑΛΜΠΟΥΜ →'; });
+}
 function applyLanguage(lang, save = false) {
   const dictionary = translations[lang] || translations.el;
   document.documentElement.lang = lang;
@@ -363,6 +398,7 @@ function applyLanguage(lang, save = false) {
   document.querySelectorAll('[data-lang-choice]').forEach(button => {
     button.setAttribute('aria-pressed', String(button.dataset.langChoice === lang));
   });
+  applyPageLanguage(lang);
   if (save) writeLanguagePreference(lang);
 }
 document.querySelectorAll('[data-lang-choice]').forEach(button => {
