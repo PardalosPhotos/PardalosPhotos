@@ -375,11 +375,18 @@ function applyPageLanguage(lang) {
     const key = (link.getAttribute('href') || '').split('#')[0];
     if (collectionLabels[key]) link.textContent = collectionLabels[key];
   });
+  if (document.title) {
+    document.title = english
+      ? document.title.replace(/ΑΛΜΠΟΥΜ/g, 'ALBUM').replace(/ΓΑΜΟΣ/g, 'WEDDING').replace(/ΒΑΠΤΙΣΗ/g, 'BAPTISM').replace(/Απόρρητο/g, 'Privacy')
+      : document.title.replace(/ALBUM/g, 'ΑΛΜΠΟΥΜ').replace(/WEDDING/g, 'ΓΑΜΟΣ').replace(/BAPTISM/g, 'ΒΑΠΤΙΣΗ').replace(/Privacy/g, 'Απόρρητο');
+  }
   const header = document.querySelector('.gallery-header');
   if (header) {
     const title = header.querySelector('h1');
     const intro = header.querySelector('div p');
     if (title && !galleryNode) title.textContent = copy.collection;
+    const albumTotal = header.querySelector(':scope > p:not(#gallery-count)');
+    if (albumTotal && /άλμπουμ|albums/.test(albumTotal.textContent)) { const number = (albumTotal.textContent.match(/\d+/) || [''])[0]; albumTotal.textContent = number + (english ? ' albums' : ' άλμπουμ'); }
     if (intro) intro.textContent = copy.intro;
   }
   if (galleryNode) {
