@@ -381,7 +381,7 @@ function applyPageLanguage(lang) {
   });
   document.querySelectorAll('.gallery-contact .btn').forEach(node => { node.textContent = english ? 'CONTACT US' : 'ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ'; });
   document.querySelectorAll('.gallery-contact p').forEach(node => { if (node.textContent.trim()) node.textContent = english ? 'Would you like to create your next story with us?' : 'Θέλετε να δημιουργήσουμε μαζί την επόμενη ιστορία σας;'; });
-  document.querySelectorAll('.album-card small').forEach(node => { node.textContent = node.textContent.replace('ΑΛΜΠΟΥΜ','ALBUM'); });
+  document.querySelectorAll('.album-card small').forEach(node => { node.textContent = node.textContent.replace(/^(ΑΛΜΠΟΥΜ|ALBUM)/, english ? 'ALBUM' : 'ΑΛΜΠΟΥΜ'); });
   document.querySelectorAll('.album-card span').forEach(node => { node.textContent = english ? 'OPEN ALBUM →' : 'ΑΝΟΙΞΤΕ ΤΟ ΑΛΜΠΟΥΜ →'; });
 }
 function applyLanguage(lang, save = false) {
