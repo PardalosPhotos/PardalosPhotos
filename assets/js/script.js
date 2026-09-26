@@ -393,6 +393,42 @@ function applyPageLanguage(lang) {
     const eyebrow = document.querySelector('.gallery-header small');
     if (eyebrow) eyebrow.textContent = english ? eyebrow.textContent.replace(/ΓΑΜΟΣ|ΒΑΠΤΙΣΗ|ΑΛΜΠΟΥΜ/g, m => m === 'ΓΑΜΟΣ' ? 'WEDDING' : m === 'ΒΑΠΤΙΣΗ' ? 'BAPTISM' : 'ALBUM') : eyebrow.textContent.replace(/WEDDING|BAPTISM|ALBUM/g, m => m === 'WEDDING' ? 'ΓΑΜΟΣ' : m === 'BAPTISM' ? 'ΒΑΠΤΙΣΗ' : 'ΑΛΜΠΟΥΜ');
   }
+  const portfolioDescriptions = {
+    wedding: {
+      el: 'Κάθε γάμος είναι μια μοναδική ιστορία. Από την προετοιμασία μέχρι τη γιορτή, αποτυπώνουμε τις αυθεντικές στιγμές, τα συναισθήματα και τις λεπτομέρειες που θα θέλετε να θυμάστε για πάντα.',
+      en: 'Every wedding is a unique story. From the preparations to the celebration, we capture the authentic moments, emotions and details you will want to remember forever.'
+    },
+    baptism: {
+      el: 'Η βάφτιση είναι μια ξεχωριστή οικογενειακή στιγμή γεμάτη χαμόγελα, συγκίνηση και αγάπη. Κρατάμε ζωντανές όλες τις όμορφες λεπτομέρειες της ημέρας.',
+      en: 'A baptism is a special family celebration filled with smiles, emotion and love. We preserve every beautiful detail of the day.'
+    },
+    travel: {
+      el: 'Τα ταξίδια μας γεμίζουν εικόνες, ανθρώπους και ιστορίες. Ανακαλύψτε μέσα από τις φωτογραφίες μας τους προορισμούς και τις εμπειρίες που ξεχωρίσαμε.',
+      en: 'Our journeys are filled with images, people and stories. Discover the destinations and experiences we found along the way.'
+    },
+    'love-story': {
+      el: 'Οι πιο όμορφες ιστορίες αγάπης γράφονται στις μικρές στιγμές. Δημιουργούμε τρυφερές και αυθεντικές εικόνες που μιλούν για κάθε ζευγάρι.',
+      en: 'The most beautiful love stories are written in the small moments. We create tender, authentic images that speak about every couple.'
+    },
+    event: {
+      el: 'Κάθε εκδήλωση έχει τον δικό της ρυθμό και τη δική της ενέργεια. Αποτυπώνουμε τις στιγμές που κάνουν κάθε γιορτή πραγματικά ξεχωριστή.',
+      en: 'Every event has its own rhythm and energy. We capture the moments that make each celebration truly special.'
+    },
+    'airbnb-real-estate': {
+      el: 'Αναδεικνύουμε κάθε χώρο με καθαρές, φωτεινές και επαγγελματικές εικόνες που παρουσιάζουν την πραγματική του αξία.',
+      en: 'We showcase every property with clean, bright and professional images that present its true value.'
+    }
+  };
+  const descriptionHost = document.querySelector('.album-grid');
+  if (descriptionHost && portfolioDescriptions[category]) {
+    let description = document.querySelector('.portfolio-description');
+    if (!description) {
+      description = document.createElement('p');
+      description.className = 'portfolio-description';
+      descriptionHost.parentNode.insertBefore(description, descriptionHost);
+    }
+    description.textContent = portfolioDescriptions[category][english ? 'en' : 'el'];
+  }
   document.querySelectorAll('.gallery-back').forEach(node => {
     node.textContent = galleryNode
       ? (english ? '← Back to albums' : '← Πίσω στα άλμπουμ')
