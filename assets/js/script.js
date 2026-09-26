@@ -378,12 +378,16 @@ document.querySelectorAll('a.portfolio-category[href]').forEach(card => {
   const extension = card.dataset.coverExt === 'png' ? 'png' : 'jpg';
   const coverPath = `assets/images/covers/${match[1]}.${extension}`;
   const legacyCoverPath = `assets/images/covers/${match[1].replace(/-/g, ' ')}.${extension}`;
+  const candidates = [...new Set([coverPath, legacyCoverPath])];
   const cover = new Image();
-  cover.onload = () => { card.style.backgroundImage = `url("${cover.src}")`; };
-  cover.onerror = () => {
-    if (cover.src.endsWith(coverPath)) cover.src = legacyCoverPath;
+  let attempt = 0;
+  const loadNextCover = () => {
+    if (attempt >= candidates.length) return;
+    cover.src = candidates[attempt++];
   };
-  cover.src = coverPath;
+  cover.onload = () => { card.style.backgroundImage = `url("${cover.src}")`; };
+  cover.onerror = loadNextCover;
+  loadNextCover();
 });
 
 const albumCards = document.querySelectorAll('.album-grid a.album-card[href]');
