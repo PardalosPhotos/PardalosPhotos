@@ -363,6 +363,18 @@ function applyPageLanguage(lang) {
     'airbnb-real-estate': { collection: english ? 'AIRBNB – REAL ESTATE' : 'AIRBNB – REAL ESTATE', intro: english ? 'Photography that presents every property at its best.' : 'Φωτογραφίες που αναδεικνύουν κάθε ακίνητο.', album: english ? 'Property details through our lens.' : 'Οι λεπτομέρειες κάθε ακινήτου μέσα από τον φακό μας.' }
   }[category];
   if (!copy) return;
+  const collectionLabels = {
+    'wedding.html': english ? 'Wedding' : 'Γάμος',
+    'baptism.html': english ? 'Baptism' : 'Βάπτιση',
+    'travel.html': 'Travel',
+    'love-story.html': 'Love Story',
+    'event.html': 'Event',
+    'airbnb-real-estate.html': 'Airbnb – Real Estate'
+  };
+  document.querySelectorAll('.collection-links a[href]').forEach(link => {
+    const key = (link.getAttribute('href') || '').split('#')[0];
+    if (collectionLabels[key]) link.textContent = collectionLabels[key];
+  });
   const header = document.querySelector('.gallery-header');
   if (header) {
     const title = header.querySelector('h1');
@@ -373,6 +385,13 @@ function applyPageLanguage(lang) {
   if (galleryNode) {
     const albumIntro = document.querySelector('.gallery-header div p');
     if (albumIntro) albumIntro.textContent = copy.album;
+    const albumTitle = document.querySelector('.gallery-header h1');
+    if (albumTitle) {
+      const number = (albumTitle.textContent.match(/\d+/) || [''])[0];
+      if (number) albumTitle.textContent = english ? `ALBUM ${number}` : `ΑΛΜΠΟΥΜ ${number}`;
+    }
+    const eyebrow = document.querySelector('.gallery-header small');
+    if (eyebrow) eyebrow.textContent = english ? eyebrow.textContent.replace(/ΓΑΜΟΣ|ΒΑΠΤΙΣΗ|ΑΛΜΠΟΥΜ/g, m => m === 'ΓΑΜΟΣ' ? 'WEDDING' : m === 'ΒΑΠΤΙΣΗ' ? 'BAPTISM' : 'ALBUM') : eyebrow.textContent.replace(/WEDDING|BAPTISM|ALBUM/g, m => m === 'WEDDING' ? 'ΓΑΜΟΣ' : m === 'BAPTISM' ? 'ΒΑΠΤΙΣΗ' : 'ΑΛΜΠΟΥΜ');
   }
   document.querySelectorAll('.gallery-back').forEach(node => {
     node.textContent = galleryNode
