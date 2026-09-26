@@ -395,4 +395,3 @@ if (albumCards.length) {
     });
   }).catch(() => {});
 }
-}
