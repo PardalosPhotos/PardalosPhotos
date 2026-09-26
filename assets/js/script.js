@@ -9,8 +9,13 @@ async function publishedPhotos() {
   if (!Array.isArray(paths)) throw new Error('Invalid published photo list');
   const prefix = '/assets/images/';
   return paths
-    .filter(path => typeof path === 'string' && path.startsWith(prefix) && /\.(jpe?g|png|webp)$/i.test(path))
-    .map(path => path.slice(prefix.length));
+    .map(path => {
+      if (typeof path !== 'string') return null;
+      const normalized = decodeURIComponent(path);
+      const index = normalized.indexOf(prefix);
+      return index >= 0 ? normalized.slice(index + prefix.length) : null;
+    })
+    .filter(path => path && /\.(jpe?g|png|webp)$/i.test(path));
 }
 
 function photoPath(name) {
