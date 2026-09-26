@@ -408,7 +408,8 @@ applyLanguage(preferredLanguage());
 
 // A cover named after each collection URL overrides its current image.
 // Missing covers leave the existing photograph or gradient unchanged.
-document.querySelectorAll('a.portfolio-category[href]').forEach(card => {
+document.querySelectorAll('a.portfolio-category[href]:not(.album-card)').forEach(card => {
+  if (card.classList.contains('wedding-cover') || card.classList.contains('baptism-cover') || card.classList.contains('event-cover')) return;
   const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
   if (!match) return;
   const extension = card.dataset.coverExt === 'png' ? 'png' : 'jpg';
