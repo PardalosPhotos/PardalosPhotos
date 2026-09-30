@@ -426,6 +426,10 @@ function applyPageLanguage(lang) {
     'airbnb-real-estate': {
       el: 'Αναδεικνύουμε κάθε χώρο με καθαρές, φωτεινές και επαγγελματικές εικόνες που παρουσιάζουν την πραγματική του αξία.',
       en: 'We showcase every property with clean, bright and professional images that present its true value.'
+    },
+    families: {
+      el: 'Οικογενειακές στιγμές γεμάτες φυσικότητα, χαμόγελα και αληθινή σύνδεση. Δημιουργούμε εικόνες που θα κρατήσετε για πάντα.',
+      en: 'Family moments filled with natural emotion, smiles and connection. We create images you will treasure forever.'
     }
   };
   const descriptionHost = document.querySelector('.album-grid');
