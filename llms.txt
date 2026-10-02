@@ -1,0 +1,29 @@
+# Pardalos Photos & Videos
+
+> Professional photography and videography studio based in Afantou, Rhodes, Greece.
+
+## Core services
+- Wedding photography and videography in Rhodes, Greece
+- Baptism photography and videography
+- Couples and love story photography
+- Family photography and holiday portrait sessions
+- Event photography and videography
+- Airbnb, villa and real estate photography
+- Travel and destination photography
+- Drone video coverage
+
+## Main pages
+- Home: https://pardalosphotos.github.io/PardalosPhotos/
+- Weddings: https://pardalosphotos.github.io/PardalosPhotos/wedding.html
+- Baptisms: https://pardalosphotos.github.io/PardalosPhotos/baptism.html
+- Couples / Love Story: https://pardalosphotos.github.io/PardalosPhotos/love-story.html
+- Families: https://pardalosphotos.github.io/PardalosPhotos/families.html
+- Events: https://pardalosphotos.github.io/PardalosPhotos/event.html
+- Real Estate / Airbnb: https://pardalosphotos.github.io/PardalosPhotos/airbnb-real-estate.html
+- Travel: https://pardalosphotos.github.io/PardalosPhotos/travel.html
+
+## Contact
+Pardalos Photos & Videos
+Afantou, Rhodes, Greece
+Email: pardalosphotos@hotmail.com
+Phone: +30 694 643 3743
