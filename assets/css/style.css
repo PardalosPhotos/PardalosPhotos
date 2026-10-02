@@ -221,3 +221,12 @@ body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaptio
 /* Visible destination-wedding signal: intentionally subtle so the original hero remains dominant. */
 .hero-seo-line{margin:-10px 0 16px;color:#ead8ca;font:500 clamp(13px,1.05vw,16px)/1.4 Manrope,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
 @media(max-width:760px){.hero-seo-line{margin:-8px 0 14px;font-size:12px;letter-spacing:.11em}}
+
+
+/* AI/SEO wedding content: editorial styling that preserves the existing gallery design. */
+.wedding-seo-kicker{display:block;margin-top:14px;color:var(--rose);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.wedding-intro{max-width:900px;margin:8px 0 38px;padding:28px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wedding-intro small{color:var(--rose);font-size:10px;letter-spacing:.22em}
+.wedding-intro h2{margin:8px 0 14px;font:500 clamp(30px,4vw,46px)/1.08 "Cormorant Garamond",serif}
+.wedding-intro p{max-width:820px;margin:0 0 10px;color:var(--muted);font-size:16px;line-height:1.75}
+@media(max-width:760px){.wedding-intro{margin-top:4px;padding:22px 0 24px}.wedding-intro p{font-size:15px;line-height:1.65}.wedding-seo-kicker{font-size:11px;line-height:1.5}}
