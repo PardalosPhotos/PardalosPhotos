@@ -238,3 +238,13 @@ body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaptio
 .service-seo-intro h2{margin:8px 0 14px;font:500 clamp(30px,4vw,46px)/1.08 "Cormorant Garamond",serif}
 .service-seo-intro p{max-width:820px;margin:0 0 10px;color:var(--muted);font-size:16px;line-height:1.75}
 @media(max-width:760px){.service-seo-intro{margin-top:4px;padding:22px 0 24px}.service-seo-intro p{font-size:15px;line-height:1.65}}
+
+
+/* Destination-wedding FAQ: visible, useful content with restrained styling. */
+.wedding-faq{max-width:900px;margin:0 0 38px;padding:6px 0 28px}
+.wedding-faq>small{color:var(--rose);font-size:10px;letter-spacing:.22em}
+.wedding-faq h2{margin:8px 0 18px;font:500 clamp(28px,3.5vw,40px)/1.1 "Cormorant Garamond",serif}
+.wedding-faq details{border-top:1px solid var(--line);padding:14px 0}
+.wedding-faq details:last-child{border-bottom:1px solid var(--line)}
+.wedding-faq summary{cursor:pointer;font-weight:600}
+.wedding-faq details p{margin:10px 0 0;color:var(--muted);line-height:1.7}
