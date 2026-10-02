@@ -57,7 +57,13 @@ if (gallery) {
 
       const img = document.createElement('img');
       img.src = photoPath(item.name);
-      img.alt = categoryLabel + ' — φωτογραφία ' + displayNumber;
+      img.alt = category === 'wedding'
+        ? 'Wedding photography in Rhodes, Greece — Pardalos Photos & Videos — ' + displayNumber
+        : category === 'baptism'
+          ? 'Baptism photography in Rhodes, Greece — Pardalos Photos & Videos — ' + displayNumber
+          : category === 'airbnb-real-estate'
+            ? 'Real estate and Airbnb photography in Rhodes, Greece — ' + displayNumber
+            : categoryLabel + ' — φωτογραφία ' + displayNumber;
       img.loading = 'lazy';
       img.decoding = 'async';
       img.onerror = () => card.remove();
