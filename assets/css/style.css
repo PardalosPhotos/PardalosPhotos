@@ -230,3 +230,11 @@ body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaptio
 .wedding-intro h2{margin:8px 0 14px;font:500 clamp(30px,4vw,46px)/1.08 "Cormorant Garamond",serif}
 .wedding-intro p{max-width:820px;margin:0 0 10px;color:var(--muted);font-size:16px;line-height:1.75}
 @media(max-width:760px){.wedding-intro{margin-top:4px;padding:22px 0 24px}.wedding-intro p{font-size:15px;line-height:1.65}.wedding-seo-kicker{font-size:11px;line-height:1.5}}
+
+
+/* Helpful service-page copy for search visitors; matches the existing editorial language. */
+.service-seo-intro{max-width:900px;margin:8px 0 38px;padding:28px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.service-seo-intro small{color:var(--rose);font-size:10px;letter-spacing:.22em}
+.service-seo-intro h2{margin:8px 0 14px;font:500 clamp(30px,4vw,46px)/1.08 "Cormorant Garamond",serif}
+.service-seo-intro p{max-width:820px;margin:0 0 10px;color:var(--muted);font-size:16px;line-height:1.75}
+@media(max-width:760px){.service-seo-intro{margin-top:4px;padding:22px 0 24px}.service-seo-intro p{font-size:15px;line-height:1.65}}
