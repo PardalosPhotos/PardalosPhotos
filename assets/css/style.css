@@ -217,3 +217,7 @@ html{scroll-padding-top:calc(var(--sticky-offset, 154px) + 26px)}
 body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaption {
   font-family: inherit !important;
 }
+
+/* Visible destination-wedding signal: intentionally subtle so the original hero remains dominant. */
+.hero-seo-line{margin:-10px 0 16px;color:#ead8ca;font:500 clamp(13px,1.05vw,16px)/1.4 Manrope,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:760px){.hero-seo-line{margin:-8px 0 14px;font-size:12px;letter-spacing:.11em}}
