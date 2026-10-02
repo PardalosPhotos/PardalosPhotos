@@ -1,0 +1,25 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'llms.txt'
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit core URLs to IndexNow
+        shell: bash
+        run: |
+          curl --fail-with-body --retry 2 --retry-delay 3 \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d '{"host":"pardalosphotos.github.io","key":"pardalos-rhodes-2026-9f3c8a71d6e24b5a","keyLocation":"https://pardalosphotos.github.io/PardalosPhotos/pardalos-rhodes-2026-9f3c8a71d6e24b5a.txt","urlList":["https://pardalosphotos.github.io/PardalosPhotos/","https://pardalosphotos.github.io/PardalosPhotos/wedding.html","https://pardalosphotos.github.io/PardalosPhotos/baptism.html","https://pardalosphotos.github.io/PardalosPhotos/families.html","https://pardalosphotos.github.io/PardalosPhotos/love-story.html","https://pardalosphotos.github.io/PardalosPhotos/event.html","https://pardalosphotos.github.io/PardalosPhotos/airbnb-real-estate.html","https://pardalosphotos.github.io/PardalosPhotos/travel.html"]}' \
+            https://api.indexnow.org/indexnow
