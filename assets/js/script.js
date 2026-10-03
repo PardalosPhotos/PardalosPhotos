@@ -496,6 +496,7 @@ function translateSharedLanguage(lang) {
  document.querySelectorAll('.lightbox-prev').forEach(n => n.setAttribute('aria-label', en ? 'Previous photo' : 'Προηγούμενη φωτογραφία'));
  document.querySelectorAll('.lightbox-next').forEach(n => n.setAttribute('aria-label', en ? 'Next photo' : 'Επόμενη φωτογραφία'));
  const labels = en ? {wedding:'WEDDING', baptism:'BAPTISM', travel:'TRAVEL', 'love-story':'LOVE STORY', families:'FAMILIES', event:'EVENT', 'airbnb-real-estate':'AIRBNB – REAL ESTATE'} : {wedding:'ΓΑΜΟΣ', baptism:'ΒΑΠΤΙΣΗ', travel:'ΤΑΞΙΔΙΑ', 'love-story':'ΖΕΥΓΑΡΙΑ', families:'ΟΙΚΟΓΕΝΕΙΕΣ', event:'ΕΚΔΗΛΩΣΕΙΣ', 'airbnb-real-estate':'AIRBNB – ΑΚΙΝΗΤΑ'};
+ document.querySelectorAll('.lightbox[role="dialog"]').forEach(n => n.setAttribute('aria-label', en ? 'Photo viewer' : 'Προβολή φωτογραφίας'));
  const category = document.getElementById('gallery')?.dataset.category;
  document.querySelectorAll('#gallery .portfolio-card').forEach(card => {
   const number = card.querySelector('.cap small')?.textContent || '';
