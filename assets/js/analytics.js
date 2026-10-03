@@ -74,8 +74,25 @@
     }
   }
 
+  function translateChoices() {
+    const en = document.documentElement.lang === 'en';
+    banner.setAttribute('aria-label', en ? 'Visitor analytics choices' : 'Επιλογές στατιστικών επισκεψιμότητας');
+    banner.querySelector('strong').textContent = en ? 'Visitor statistics' : 'Στατιστικά επισκεψιμότητας';
+    banner.querySelectorAll('p')[1].innerHTML = en
+      ? 'With your permission, we use Google Analytics to understand how many people visit the site, where they come from and how they interact with key parts of the page. If you select “No”, Google Analytics does not load. <a href="privacy.html">More information</a>.'
+      : 'Με την άδειά σας χρησιμοποιούμε το Google Analytics για να βλέπουμε πόσοι επισκέπτονται το site, από πού έρχονται και πώς αλληλεπιδρούν με βασικά στοιχεία της σελίδας. Αν επιλέξετε «Όχι», δεν φορτώνεται το Google Analytics. <a href="privacy.html">Περισσότερες πληροφορίες</a>.';
+    banner.querySelector('[data-analytics-choice="rejected"]').textContent = en ? 'No, thank you' : 'Όχι, ευχαριστώ';
+    banner.querySelector('[data-analytics-choice="accepted"]').textContent = en ? 'Accept' : 'Αποδοχή';
+    const footer = document.querySelector('.analytics-footer-links');
+    if (footer) {
+      footer.querySelector('a').textContent = en ? 'Privacy' : 'Απόρρητο';
+      footer.querySelector('button').textContent = en ? 'Analytics settings' : 'Ρυθμίσεις στατιστικών';
+    }
+  }
+  document.addEventListener('pardalos:language', () => { if (banner) translateChoices(); });
   function init() {
     buildChoices();
+    translateChoices();
     const choice = readChoice();
     if (choice === 'accepted') {
       banner.hidden = true;
