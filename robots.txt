@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pardalosphotos.github.io/PardalosPhotos/sitemap.xml
-Sitemap: https://pardalosphotos.github.io/PardalosPhotos/sitemap.txt
+Sitemap: https://pardalosphotos.gr/sitemap.xml
+Sitemap: https://pardalosphotos.gr/sitemap.txt
