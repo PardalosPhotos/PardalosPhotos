@@ -13,14 +13,14 @@
 - Drone video coverage
 
 ## Main pages
-- Home: https://pardalosphotos.github.io/PardalosPhotos/
-- Weddings: https://pardalosphotos.github.io/PardalosPhotos/wedding.html
-- Baptisms: https://pardalosphotos.github.io/PardalosPhotos/baptism.html
-- Couples / Love Story: https://pardalosphotos.github.io/PardalosPhotos/love-story.html
-- Families: https://pardalosphotos.github.io/PardalosPhotos/families.html
-- Events: https://pardalosphotos.github.io/PardalosPhotos/event.html
-- Real Estate / Airbnb: https://pardalosphotos.github.io/PardalosPhotos/airbnb-real-estate.html
-- Travel: https://pardalosphotos.github.io/PardalosPhotos/travel.html
+- Home: https://pardalosphotos.gr/
+- Weddings: https://pardalosphotos.gr/wedding.html
+- Baptisms: https://pardalosphotos.gr/baptism.html
+- Couples / Love Story: https://pardalosphotos.gr/love-story.html
+- Families: https://pardalosphotos.gr/families.html
+- Events: https://pardalosphotos.gr/event.html
+- Real Estate / Airbnb: https://pardalosphotos.gr/airbnb-real-estate.html
+- Travel: https://pardalosphotos.gr/travel.html
 
 ## Contact
 Pardalos Photos & Videos
