@@ -1,5 +1,5 @@
 const gallery = document.getElementById('gallery');
-const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ', travel: 'TRAVEL', 'love-story': 'LOVE STORY', event: 'EVENT', 'airbnb-real-estate': 'AIRBNB – REAL ESTATE' };
+const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ', travel: 'TRAVEL', 'love-story': 'LOVE STORY', families: 'FAMILIES', event: 'EVENT', 'airbnb-real-estate': 'AIRBNB – REAL ESTATE' };
 const photoOrder = new Intl.Collator('el', { numeric: true, sensitivity: 'base' });
 
 async function publishedPhotos() {
@@ -63,7 +63,7 @@ if (gallery) {
           ? 'Baptism photography in Rhodes, Greece — Pardalos Photos & Videos — ' + displayNumber
           : category === 'airbnb-real-estate'
             ? 'Real estate and Airbnb photography in Rhodes, Greece — ' + displayNumber
-            : categoryLabel + ' — φωτογραφία ' + displayNumber;
+            : ({ families: 'Family photography', 'love-story': 'Couple photography', event: 'Event photography', travel: 'Travel photography' }[category] || categoryLabel) + ' — Pardalos Photos & Videos — ' + displayNumber;
       img.loading = 'lazy';
       img.decoding = 'async';
       img.onerror = () => card.remove();
@@ -227,6 +227,7 @@ const translations = {
     'collection.baptism': 'Βάπτιση',
     'collection.travel': 'Travel',
     'collection.loveStory': 'Love Story',
+    'albums.pending': 'Για δείγματα φωτογράφισης, επικοινωνήστε μαζί μας.',
     'collection.families': 'Families',
     'collection.event': 'Event',
     'collection.realestate': 'Airbnb – Real Estate',
@@ -276,7 +277,7 @@ const translations = {
     'portfolio.openCollection': 'ΔΕΙΤΕ ΤΗ ΣΥΛΛΟΓΗ →',
     'about.kicker': 'ΣΧΕΤΙΚΑ',
     'about.title': 'ΒΡΕΙΤΕ ΜΑΣ ΣΤΗ ΡΟΔΟ',
-    'about.copy': 'Αποτυπώνουμε τις πιο σημαντικές στιγμές της ζωής σας με επαγγελματισμό, δημιουργικότητα και αγάπη για τη λεπτομέρεια.',
+    'about.copy': 'Το Pardalos Photos & Videos είναι η φωτογραφική και βιντεογραφική παρουσία του Tsampikos Pardalos, με βάση το Αφάντου της Ρόδου. Καλύπτουμε γάμους και destination weddings στη Ρόδο, βαπτίσεις και εκδηλώσεις, καθώς και φωτογραφίσεις ζευγαριών, οικογενειών και ακινήτων.',
     'about.details': 'Θα μας βρείτε στην Π. Ράμμου 186, Αφάντου, Ρόδος. Για ραντεβού ή πληροφορίες μπορείτε να καλέσετε ή να στείλετε email.',
     'contact.title': 'Ας δημιουργήσουμε<br>μαζί τις αναμνήσεις σας!'
   },
@@ -340,7 +341,7 @@ const translations = {
     'portfolio.openCollection': 'VIEW COLLECTION →',
     'about.kicker': 'ABOUT',
     'about.title': 'FIND US IN RHODES',
-    'about.copy': 'We capture your most important moments with professionalism, creativity and attention to detail.',
+    'about.copy': 'Pardalos Photos & Videos is the photography and videography business of Tsampikos Pardalos, based in Afantou, Rhodes. We cover weddings and destination weddings in Rhodes, baptisms and events, as well as couple, family and property photography.',
     'about.details': 'You can find us at P. Rammou 186, Afantou, Rhodes. For appointments or information, call us or send an email.',
     'contact.title': 'Let\'s create<br>your memories together!'
   }
@@ -361,7 +362,7 @@ function applyPageLanguage(lang) {
   const english = lang === 'en';
   const galleryNode = document.getElementById('gallery');
   const path = location.pathname.toLowerCase();
-  const category = galleryNode?.dataset.category || (path.match(/(wedding|baptism|travel|love-story|event|airbnb-real-estate)/)?.[1] || '');
+  const category = galleryNode?.dataset.category || (path.match(/(wedding|baptism|travel|love-story|families|event|airbnb-real-estate)/)?.[1] || '');
   const copy = {
     wedding: { collection: english ? 'WEDDINGS' : 'ΓΑΜΟΣ', intro: english ? 'Choose an album to view the photographs.' : 'Επιλέξτε ένα άλμπουμ για να δείτε τις φωτογραφίες.', album: english ? 'Wedding moments through our lens.' : 'Στιγμές γάμου μέσα από τον φακό μας.' },
     baptism: { collection: english ? 'BAPTISM' : 'ΒΑΠΤΙΣΗ', intro: english ? 'Choose an album to view the photographs.' : 'Επιλέξτε ένα άλμπουμ για να δείτε τις φωτογραφίες.', album: english ? 'Tender moments and family memories.' : 'Τρυφερές στιγμές και οικογενειακές αναμνήσεις.' },
@@ -517,6 +518,7 @@ if (albumCards.length) {
       // The first wedding album also contains the original photos stored in assets/images.
       const originalCount = match[1] === 'wedding-1' ? Number.parseInt(label.textContent, 10) || 0 : 0;
       const count = originalCount + folderCount;
+      if (!count) { card.remove(); return; }
       label.dataset.photoCount = String(count);
       label.textContent = count ? count + (document.documentElement.lang === 'en' ? ' photos' : ' φωτογραφίες') : (document.documentElement.lang === 'en' ? 'Ready for photos' : 'Έτοιμο για φωτογραφίες');
       const first = files.find(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'));
