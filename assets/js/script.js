@@ -57,6 +57,15 @@ if (gallery) {
 
       const img = document.createElement('img');
       img.src = photoPath(item.name);
+      const seo = window.PARDALOS_IMAGE_SEO?.[item.name];
+      if (seo) {
+        img.width = seo.width; img.height = seo.height;
+        img.dataset.seoEl = seo.el; img.dataset.seoEn = seo.en;
+        img.dataset.fullSrc = photoPath(item.name);
+        img.src = seo.thumbnail;
+      } else {
+        img.addEventListener('load', () => { img.width = img.naturalWidth; img.height = img.naturalHeight; }, { once: true });
+      }
       img.alt = category === 'wedding'
         ? 'Wedding photography in Rhodes, Greece — Pardalos Photos & Videos — ' + displayNumber
         : category === 'baptism'
@@ -66,7 +75,7 @@ if (gallery) {
             : ({ families: 'Family photography', 'love-story': 'Couple photography', event: 'Event photography', travel: 'Travel photography' }[category] || categoryLabel) + ' — Pardalos Photos & Videos — ' + displayNumber;
       img.loading = 'lazy';
       img.decoding = 'async';
-      img.onerror = () => card.remove();
+      img.onerror = () => { if (img.dataset.fullSrc && img.src !== new URL(img.dataset.fullSrc, document.baseURI).href) { img.src = img.dataset.fullSrc; } else { card.remove(); } };
 
       const cap = document.createElement('figcaption');
       cap.className = 'cap';
@@ -87,7 +96,7 @@ if (gallery) {
     translateSharedLanguage(document.documentElement.lang);
   }
 
-  gallery.textContent = document.documentElement.lang === 'en' ? 'Loading photos…' : 'Φόρτωση φωτογραφιών…';
+  if (!gallery.children.length) gallery.textContent = document.documentElement.lang === 'en' ? 'Loading photos…' : 'Φόρτωση φωτογραφιών…';
   publishedPhotos().then(files => {
     if (!albumKey) return renderGallery(legacyPhotos);
     const folderKey = album?.folder || albumKey;
@@ -110,7 +119,7 @@ if (gallery) {
     const source = card.querySelector('img');
     const image = lightbox?.querySelector('img');
     if (!source || !image) return;
-    image.src = source.src;
+    image.src = source.dataset.fullSrc || source.src;
     image.alt = source.alt;
     activeCard = card;
   }
@@ -404,7 +413,7 @@ function applyPageLanguage(lang) {
   if (header) {
     const title = header.querySelector('h1');
     const intro = header.querySelector('div p');
-    if (title && !galleryNode) title.textContent = copy.collection;
+    if (title && !galleryNode && !title.dataset.seoEl) title.textContent = copy.collection;
     const albumTotal = header.querySelector(':scope > p:not(#gallery-count)');
     if (albumTotal && /άλμπουμ|albums/.test(albumTotal.textContent)) { const number = (albumTotal.textContent.match(/\d+/) || [''])[0]; albumTotal.textContent = number + (english ? ' albums' : ' άλμπουμ'); }
     if (intro) intro.textContent = copy.intro;
@@ -413,7 +422,7 @@ function applyPageLanguage(lang) {
     const albumIntro = document.querySelector('.gallery-header div p');
     if (albumIntro) albumIntro.textContent = copy.album;
     const albumTitle = document.querySelector('.gallery-header h1');
-    if (albumTitle) {
+    if (albumTitle && !albumTitle.dataset.seoEl) {
       const number = (albumTitle.textContent.match(/\d+/) || [''])[0];
       if (number) albumTitle.textContent = english ? `ALBUM ${number}` : `ΑΛΜΠΟΥΜ ${number}`;
     }
@@ -475,6 +484,7 @@ function applyPageLanguage(lang) {
 
 function translateSharedLanguage(lang) {
  const en = lang === 'en';
+ document.querySelectorAll('[data-seo-el][data-seo-en]').forEach(node => { const text = en ? node.dataset.seoEn : node.dataset.seoEl; if (node.tagName === 'IMG') node.alt = text; else node.textContent = text; });
  if (document.querySelector('.privacy-main')) document.title = (en ? 'Privacy' : 'Απόρρητο') + ' | Pardalos Photos & Videos';
  document.querySelectorAll('[data-faq-schema]').forEach(node => {
   const schema = JSON.parse(node.textContent);
@@ -504,7 +514,7 @@ function translateSharedLanguage(lang) {
   if (cap?.firstChild) cap.firstChild.textContent = labels[category] || '';
   card.setAttribute('aria-label', (en ? 'Open photo ' : 'Άνοιγμα φωτογραφίας ') + number + ' — ' + (labels[category] || ''));
   const img = card.querySelector('img');
-  if(img) img.alt = (labels[category] || '') + ' — Pardalos Photos & Videos — ' + number;
+  if(img && !img.dataset.seoEl) img.alt = (labels[category] || '') + ' — Pardalos Photos & Videos — ' + number;
  });
  const eyebrow = document.querySelector('.gallery-header small');
  if (category && eyebrow) { const number = eyebrow.textContent.match(/\d+/)?.[0]; eyebrow.textContent = (labels[category] || '') + (number ? ' / ' + (en ? 'ALBUM ' : 'ΑΛΜΠΟΥΜ ') + number : ''); }
@@ -573,6 +583,7 @@ if (albumCards.length) {
       if (!count) { card.remove(); return; }
       label.dataset.photoCount = String(count);
       label.textContent = count ? count + (document.documentElement.lang === 'en' ? ' photos' : ' φωτογραφίες') : (document.documentElement.lang === 'en' ? 'Ready for photos' : 'Έτοιμο για φωτογραφίες');
+      if (card.dataset.cover) { card.style.backgroundImage = `url("${card.dataset.cover}")`; return; }
       const first = files.find(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'));
       const coverCandidates = [`assets/images/covers/${match[1]}.jpg`, `assets/images/covers/${match[1]}.png`];
       let coverIndex = 0;
