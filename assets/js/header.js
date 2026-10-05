@@ -21,3 +21,13 @@ if (toggle && navigation) {
     if (event.matches) closeMenu();
   });
 }
+
+// Keep language links on the complete bilingual page and persist the explicit choice.
+document.querySelectorAll('.language-switcher a[hreflang]').forEach(link => {
+  link.addEventListener('click', () => {
+    const lang = link.getAttribute('hreflang');
+    if (lang === 'el' || lang === 'en') {
+      try { localStorage.setItem('pardalos-language-v1', lang); } catch { /* Storage may be unavailable. */ }
+    }
+  });
+});
