@@ -253,3 +253,27 @@ body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaptio
 .gallery-header .service-heading{font-size:clamp(28px,3.4vw,44px);line-height:1.2;max-width:920px}
 .hero .hero-brand{display:block}
 .service-seo-intro a{text-decoration:underline;text-underline-offset:3px}
+
+/* Keep header controls in the same slots on both language routes. */
+.navrow > .language-switcher{grid-column:3}
+.navrow > .social-top{grid-column:4}
+.social-top a[aria-label="WhatsApp"]{width:48px;height:48px;background:#79433d;border:2px solid #79433d;color:#fff;box-shadow:0 4px 14px rgba(48,42,39,.2)}
+.social-top a[aria-label="WhatsApp"] svg{width:25px;height:25px}
+.social-top a[aria-label="WhatsApp"]:hover,.social-top a[aria-label="WhatsApp"]:focus-visible{background:#4f302d;border-color:#4f302d;color:#fff;box-shadow:0 5px 18px rgba(48,42,39,.32)}
+@media(max-width:760px){
+  .navrow > .logo{grid-column:1;grid-row:1}
+  .navrow > .nav-toggle{grid-column:2;grid-row:1}
+  .navrow > .social-top{grid-column:1/-1;grid-row:2}
+  .navrow > .language-switcher{grid-column:1/-1;grid-row:3}
+  .social-top a[aria-label="WhatsApp"]{width:44px;height:44px}
+  .social-top a[aria-label="WhatsApp"] svg{width:24px;height:24px}
+}
+
+@media(width > 760px) and (max-width:1250px){
+  .navrow{grid-template-columns:minmax(0,1fr) auto auto;gap:8px 18px;padding-top:10px}
+  .navrow > .logo{grid-column:1;grid-row:1}
+  .navrow > .language-switcher{grid-column:2;grid-row:1}
+  .navrow > .social-top{grid-column:3;grid-row:1}
+  .navrow > .navlinks{grid-column:1/-1;grid-row:2;flex-wrap:wrap;gap:8px 18px}
+  .navlinks a{padding:10px 0}
+}
