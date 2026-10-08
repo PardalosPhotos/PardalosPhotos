@@ -277,3 +277,11 @@ body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaptio
   .navrow > .navlinks{grid-column:1/-1;grid-row:2;flex-wrap:wrap;gap:8px 18px}
   .navlinks a{padding:10px 0}
 }
+
+/* Client reviews: readable and discoverable on small screens */
+#client-reviews{display:block!important;visibility:visible!important;opacity:1!important;scroll-margin-top:110px}
+#client-reviews .review-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:22px 0}
+#client-reviews .review-card{margin:0;padding:22px;border:1px solid rgba(125,100,70,.25);border-radius:14px;background:#fff;color:#292522;box-shadow:0 3px 18px rgba(0,0,0,.06)}
+#client-reviews .review-stars{color:#b68a37;font-size:1.15rem;letter-spacing:.08em}
+#client-reviews .review-card p{line-height:1.65;overflow-wrap:anywhere}
+@media(max-width:700px){#client-reviews{padding:38px 0!important}#client-reviews .review-grid{grid-template-columns:1fr;gap:12px}#client-reviews .review-card{padding:18px}#client-reviews .section-title h2{font-size:clamp(1.25rem,5vw,1.8rem)}}
