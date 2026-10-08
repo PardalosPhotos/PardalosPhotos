@@ -390,7 +390,6 @@ function applyPageLanguage(lang) {
     event: { collection: english ? 'EVENTS' : 'ΕΚΔΗΛΩΣΕΙΣ', intro: english ? 'Memories from events made to last.' : 'Αναμνήσεις από εκδηλώσεις που μένουν.', album: english ? 'Special moments from every event.' : 'Ξεχωριστές στιγμές από κάθε εκδήλωση.' },
     'airbnb-real-estate': { collection: english ? 'AIRBNB – REAL ESTATE' : 'AIRBNB – ΑΚΙΝΗΤΑ', intro: english ? 'Photography that presents every property at its best.' : 'Φωτογραφίες που αναδεικνύουν κάθε ακίνητο.', album: english ? 'Property details through our lens.' : 'Οι λεπτομέρειες κάθε ακινήτου μέσα από τον φακό μας.' }
   }[category];
-  if (!copy) return;
   const collectionLabels = {
     'wedding.html': english ? 'Wedding' : 'Γάμος',
     'baptism.html': english ? 'Baptism' : 'Βάπτιση',
@@ -401,9 +400,16 @@ function applyPageLanguage(lang) {
     'families.html': english ? 'Families' : 'Οικογένειες'
   };
   document.querySelectorAll('.collection-links a[href]').forEach(link => {
-    const key = (link.getAttribute('href') || '').split('#')[0];
-    if (collectionLabels[key]) link.textContent = collectionLabels[key];
+    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0];
+    if (collectionLabels[key]) {
+      link.textContent = collectionLabels[key];
+      link.setAttribute('aria-label', collectionLabels[key]);
+    }
   });
+  if (!copy) {
+    document.querySelectorAll('.gallery-back').forEach(node => { node.textContent = english ? '← Back to portfolio' : '← Πίσω στο portfolio'; });
+    return;
+  }
   if (document.title) {
     document.title = english
       ? document.title.replace(/ΑΛΜΠΟΥΜ/g, 'ALBUM').replace(/ΓΑΜΟΣ/g, 'WEDDING').replace(/ΒΑΠΤΙΣΗ/g, 'BAPTISM').replace(/Απόρρητο/g, 'Privacy')
@@ -480,6 +486,11 @@ function applyPageLanguage(lang) {
   document.querySelectorAll('.album-card h2').forEach(node => { const number = (node.textContent.match(/\d+/) || [''])[0]; node.textContent = english ? `ALBUM ${number}` : `ΑΛΜΠΟΥΜ ${number}`; });
   document.querySelectorAll('.album-card p').forEach(node => { const count = node.dataset.photoCount || (node.textContent.match(/\d+/) || [''])[0]; if (count) node.textContent = count + (english ? ' photos' : ' φωτογραφίες'); else node.textContent = english ? 'Ready for photos' : 'Έτοιμο για φωτογραφίες'; });
   document.querySelectorAll('.album-card span').forEach(node => { node.textContent = english ? 'OPEN ALBUM →' : 'ΑΝΟΙΞΤΕ ΤΟ ΑΛΜΠΟΥΜ →'; });
+  // Keep the selected language visible on links that do not carry data-i18n.
+  document.querySelectorAll('.collection-links a[href]').forEach(link => {
+    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0];
+    if (collectionLabels[key]) link.textContent = collectionLabels[key];
+  });
 }
 
 function translateSharedLanguage(lang) {
