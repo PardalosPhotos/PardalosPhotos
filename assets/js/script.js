@@ -389,6 +389,8 @@ function writeLanguagePreference(lang) {
   try { localStorage.setItem(languageKey, lang); } catch { /* Storage may be unavailable. */ }
 }
 function preferredLanguage() {
+  const requested = new URLSearchParams(location.search).get('lang');
+  if (requested === 'el' || requested === 'en') return requested;
   const saved = readLanguagePreference();
   if (saved === 'el' || saved === 'en') return saved;
   const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
