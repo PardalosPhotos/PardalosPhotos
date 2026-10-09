@@ -20,3 +20,7 @@
 .app-download-phonebar.small{width:64px;margin-top:0}
 .app-download-version{position:absolute;bottom:19px;right:19px;font-size:10px;letter-spacing:.12em;color:#62534b;background:#f8f3ed;border:1px solid #cfbfb0;padding:7px 10px}
 @media(max-width:760px){.app-download-section{padding:57px 0}.app-download-layout{grid-template-columns:1fr;gap:28px}.app-download-section h2{font-size:42px}.app-download-action{width:100%;justify-content:center;text-align:center}.app-download-display{min-height:260px}.app-download-phone{transform:rotate(-5deg) scale(.78);margin:-22px 0}.app-download-version{bottom:12px;right:12px}}
+
+.app-appointment-note{font-size:12px;margin:12px 0 0}
+.app-appointment-note a{color:#87584f;text-decoration:underline;text-underline-offset:3px}
+.app-appointment-note a:hover,.app-appointment-note a:focus-visible{color:#653f39}
