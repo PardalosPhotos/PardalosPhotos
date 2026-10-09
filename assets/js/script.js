@@ -553,6 +553,26 @@ function translateSharedLanguage(lang) {
  document.querySelectorAll('footer .footer-row > span:first-child').forEach(n => n.textContent = '© 2026 Pardalos Photos & Videos · ' + (en ? 'Rhodes, Greece' : 'Ρόδος, Ελλάδα'));
 }
 
+// Android download card — bilingual text for the existing language switcher.
+Object.assign(translations.el, {
+  'app.kicker': 'PARDALOS PHOTOS APP',
+  'app.title': 'Οι εκτυπώσεις σου, πιο εύκολα από ποτέ.',
+  'app.description': 'Επίλεξε τις αγαπημένες σου φωτογραφίες, διάσταση και ποσότητα, και στείλε την παραγγελία σου απευθείας από το κινητό. Διάλεξε παραλαβή από το κατάστημα ή Delivery στον χώρο σου.',
+  'app.pickup': 'Παραλαβή από το κατάστημα',
+  'app.delivery': 'Delivery στον χώρο σου',
+  'app.download': 'ΚΑΤΕΒΑΣΕ ΤΗΝ ΕΦΑΡΜΟΓΗ',
+  'app.note': 'Για Android · Έκδοση 1.2.4 · Αρχείο APK'
+});
+Object.assign(translations.en, {
+  'app.kicker': 'PARDALOS PHOTOS APP',
+  'app.title': 'Your photo prints, made simple.',
+  'app.description': 'Choose your favorite photos, print sizes and quantities, then place your order right from your phone. Select in-store pickup or delivery to your address.',
+  'app.pickup': 'In-store pickup',
+  'app.delivery': 'Delivery to your address',
+  'app.download': 'DOWNLOAD THE APP',
+  'app.note': 'For Android · Version 1.2.4 · APK file'
+});
+
 function applyLanguage(lang, save = false) {
   const dictionary = translations[lang] || translations.el;
   document.documentElement.lang = lang;
