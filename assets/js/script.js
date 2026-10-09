@@ -363,24 +363,24 @@ const translations = {
 Object.assign(translations.el, {
   'app.kicker': 'PARDALOS PHOTOS APP',
   'app.navDownload': 'Κατέβασε το App',
-  'app.title': 'Όλες οι φωτογραφικές σου ανάγκες, σε μία εφαρμογή.',
-  'app.description': 'Παράγγειλε τις αγαπημένες σου φωτογραφίες από το κινητό σου και ανακάλυψε τις υπηρεσίες του Pardalos Photos & Videos. Για φωτογραφίσεις, ραντεβού και έλεγχο διαθεσιμότητας ημερομηνιών για γάμους, βαπτίσεις και εκδηλώσεις, μπορείς να επικοινωνήσεις μαζί μας εύκολα και γρήγορα.',
-  'app.printOrders': 'Παραγγελίες φωτογραφιών',
-  'app.appointments': 'Ραντεβού & διαθεσιμότητα',
-  'app.fulfillment': 'Παραλαβή ή Delivery',
-  'app.availabilityLink': 'Ρώτησε για ραντεβού ή διαθέσιμη ημερομηνία →',
+  'app.title': 'Όλες οι υπηρεσίες μας, στο κινητό σου.',
+  'app.description': 'Κατέβασε τώρα το Pardalos Photos App και εξυπηρετήσου εύκολα, όπου κι αν βρίσκεσαι. Κάνε αίτημα για ραντεβού φωτογράφισης, έλεγξε τη διαθεσιμότητα ημερομηνιών για γάμους, βαπτίσεις και εκδηλώσεις, επικοινώνησε μαζί μας και παράγγειλε τις αγαπημένες σου φωτογραφίες για εκτύπωση, με παραλαβή από το κατάστημα ή Delivery στον χώρο σου.',
+  'app.printOrders': 'Ραντεβού & ημερομηνίες',
+  'app.appointments': 'Άμεση επικοινωνία',
+  'app.fulfillment': 'Εκτυπώσεις & Delivery',
+  'app.availabilityLink': 'Χρειάζεσαι βοήθεια; Επικοινώνησε μαζί μας →',
   'app.download': 'ΚΑΤΕΒΑΣΕ ΤΗΝ ΕΦΑΡΜΟΓΗ',
   'app.note': 'Για Android · Έκδοση 1.2.4 · Αρχείο APK'
 });
 Object.assign(translations.en, {
   'app.kicker': 'PARDALOS PHOTOS APP',
   'app.navDownload': 'Download App',
-  'app.title': 'All your photography needs, in one app.',
-  'app.description': 'Order your favorite photo prints from your phone and discover Pardalos Photos & Videos services. For photo sessions, appointments and date-availability enquiries for weddings, baptisms and events, get in touch with us quickly and easily.',
-  'app.printOrders': 'Photo print orders',
-  'app.appointments': 'Appointments & date enquiries',
-  'app.fulfillment': 'In-store pickup or Delivery',
-  'app.availabilityLink': 'Ask about an appointment or an available date →',
+  'app.title': 'All our services, right on your phone.',
+  'app.description': 'Download the Pardalos Photos App and stay connected wherever you are. Request a photography appointment, check date availability for weddings, baptisms and events, get in touch with us, and order prints of your favorite photos for in-store pickup or delivery to your address.',
+  'app.printOrders': 'Appointments & available dates',
+  'app.appointments': 'Contact us directly',
+  'app.fulfillment': 'Photo prints & delivery',
+  'app.availabilityLink': 'Need help? Contact us →',
   'app.download': 'DOWNLOAD THE APP',
   'app.note': 'For Android · Version 1.2.4 · APK file'
 });
@@ -578,8 +578,8 @@ function translateSharedLanguage(lang) {
 // Android download card — bilingual text for the existing language switcher.
 Object.assign(translations.el, {
   'app.kicker': 'PARDALOS PHOTOS APP',
-  'app.title': 'Οι εκτυπώσεις σου, πιο εύκολα από ποτέ.',
-  'app.description': 'Επίλεξε τις αγαπημένες σου φωτογραφίες, διάσταση και ποσότητα, και στείλε την παραγγελία σου απευθείας από το κινητό. Διάλεξε παραλαβή από το κατάστημα ή Delivery στον χώρο σου.',
+  'app.title': 'Όλες οι υπηρεσίες μας, στο κινητό σου.',
+  'app.description': 'Κατέβασε τώρα το Pardalos Photos App και εξυπηρετήσου εύκολα, όπου κι αν βρίσκεσαι. Κάνε αίτημα για ραντεβού φωτογράφισης, έλεγξε τη διαθεσιμότητα ημερομηνιών για γάμους, βαπτίσεις και εκδηλώσεις, επικοινώνησε μαζί μας και παράγγειλε τις αγαπημένες σου φωτογραφίες για εκτύπωση, με παραλαβή από το κατάστημα ή Delivery στον χώρο σου.',
   'app.pickup': 'Παραλαβή από το κατάστημα',
   'app.delivery': 'Delivery στον χώρο σου',
   'app.download': 'ΚΑΤΕΒΑΣΕ ΤΗΝ ΕΦΑΡΜΟΓΗ',
@@ -587,8 +587,8 @@ Object.assign(translations.el, {
 });
 Object.assign(translations.en, {
   'app.kicker': 'PARDALOS PHOTOS APP',
-  'app.title': 'Your photo prints, made simple.',
-  'app.description': 'Choose your favorite photos, print sizes and quantities, then place your order right from your phone. Select in-store pickup or delivery to your address.',
+  'app.title': 'All our services, right on your phone.',
+  'app.description': 'Download the Pardalos Photos App and stay connected wherever you are. Request a photography appointment, check date availability for weddings, baptisms and events, get in touch with us, and order prints of your favorite photos for in-store pickup or delivery to your address.',
   'app.pickup': 'In-store pickup',
   'app.delivery': 'Delivery to your address',
   'app.download': 'DOWNLOAD THE APP',
