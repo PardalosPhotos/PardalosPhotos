@@ -1,0 +1,22 @@
+/* Pardalos Photos Android app download — standalone responsive section */
+.app-download-section{background:#eae1d8;padding:76px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.app-download-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:56px;align-items:center}
+.app-download-kicker{display:inline-block;font-size:11px;letter-spacing:.23em;text-transform:uppercase;color:#895e55;font-weight:700;margin:0 0 15px}
+.app-download-section h2{font:500 clamp(38px,4.4vw,60px)/1.07 "Cormorant Garamond",serif;letter-spacing:-.015em;color:var(--ink);margin:0 0 18px}
+.app-download-description{font-size:15px;line-height:1.8;color:#554b45;max-width:650px;margin:0 0 23px}
+.app-download-features{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px;padding:0;list-style:none}
+.app-download-features li{padding:7px 13px;border:1px solid #c9b7a7;border-radius:50px;color:#584943;font-size:12px;background:#f5f0ea}
+.app-download-action{display:inline-flex;align-items:center;gap:13px;padding:17px 27px;color:#fff;background:#87584f;border:1px solid #87584f;font-size:13px;font-weight:700;letter-spacing:.025em;transition:background-color .2s,transform .2s}
+.app-download-action:hover,.app-download-action:focus-visible{background:#653f39;border-color:#653f39;color:#fff;transform:translateY(-2px)}
+.app-download-action svg{width:19px;height:19px;flex-shrink:0}
+.app-download-note{color:#796b62;font-size:12px;margin:13px 0 0}
+.app-download-display{display:grid;place-items:center;min-height:335px;border:1px solid #d5c7bb;background:radial-gradient(circle at 50% 40%,#fcf8f3 0%,#ded1c6 80%);position:relative;overflow:hidden}
+.app-download-phone{width:189px;height:292px;border:8px solid #39332f;border-radius:27px;background:#f7f3ed;box-shadow:18px 20px 35px rgba(50,35,26,.19);padding:24px 17px 19px;text-align:center;transform:rotate(-6deg)}
+.app-download-phone::before{content:"";display:block;width:55px;height:8px;border-radius:0 0 9px 9px;background:#39332f;position:absolute;top:0;left:calc(50% - 27px)}
+.app-download-monogram{font:italic 600 75px/.95 "Cormorant Garamond",serif;color:#a7786d;margin:12px 0 8px}
+.app-download-brand{font:500 22px/1.1 "Cormorant Garamond",serif;color:#302a27}
+.app-download-subbrand{font:700 7px/1.5 Manrope,Arial,sans-serif;letter-spacing:.2em;color:#766c66;margin-top:5px}
+.app-download-phonebar{height:7px;width:90px;background:#d8c7ba;border-radius:3px;margin:32px auto 9px}
+.app-download-phonebar.small{width:64px;margin-top:0}
+.app-download-version{position:absolute;bottom:19px;right:19px;font-size:10px;letter-spacing:.12em;color:#62534b;background:#f8f3ed;border:1px solid #cfbfb0;padding:7px 10px}
+@media(max-width:760px){.app-download-section{padding:57px 0}.app-download-layout{grid-template-columns:1fr;gap:28px}.app-download-section h2{font-size:42px}.app-download-action{width:100%;justify-content:center;text-align:center}.app-download-display{min-height:260px}.app-download-phone{transform:rotate(-5deg) scale(.78);margin:-22px 0}.app-download-version{bottom:12px;right:12px}}
