@@ -3,7 +3,7 @@ const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ', trave
 const photoOrder = new Intl.Collator('el', { numeric: true, sensitivity: 'base' });
 
 async function publishedPhotos() {
-  const response = await fetch('album-files.json', { cache: 'no-cache' });
+  const response = await fetch('/album-files.json', { cache: 'no-cache' });
   if (!response.ok) throw new Error('Could not load the published photo list');
   const paths = await response.json();
   if (!Array.isArray(paths)) throw new Error('Invalid published photo list');
@@ -19,7 +19,7 @@ async function publishedPhotos() {
 }
 
 function photoPath(name) {
-  return 'assets/images/' + encodeURIComponent(name).replace(/%2F/g, '/');
+  return '/assets/images/' + encodeURIComponent(name).replace(/%2F/g, '/');
 }
 
 if (gallery) {
@@ -289,7 +289,7 @@ const translations = {
     'about.googleReview': 'Μοιραστείτε την εμπειρία σας στο Google',
     'about.kicker': 'ΣΧΕΤΙΚΑ',
     'about.title': 'ΒΡΕΙΤΕ ΜΑΣ ΣΤΗ ΡΟΔΟ',
-    'about.copy': 'Το Pardalos Photos & Videos είναι η φωτογραφική και βιντεογραφική παρουσία του Tsampikos Pardalos, με βάση το Αφάντου της Ρόδου. Καλύπτουμε γάμους και destination weddings στη Ρόδο, βαπτίσεις και εκδηλώσεις, καθώς και φωτογραφίσεις ζευγαριών, οικογενειών και ακινήτων.',
+    'about.copy': 'Το Pardalos Photos & Videos είναι η φωτογραφική και βιντεογραφική παρουσία του Tsabickos Pardalos, με βάση το Αφάντου της Ρόδου. Καλύπτουμε γάμους και destination weddings στη Ρόδο, βαπτίσεις και εκδηλώσεις, καθώς και φωτογραφίσεις ζευγαριών, οικογενειών και ακινήτων.',
     'about.details': 'Θα μας βρείτε στην Π. Ράμμου 186, Αφάντου, Ρόδος. Για ραντεβού ή πληροφορίες μπορείτε να καλέσετε ή να στείλετε email.',
     'contact.title': 'Ας δημιουργήσουμε<br>μαζί τις αναμνήσεις σας!'
   },
@@ -355,7 +355,7 @@ const translations = {
     'about.googleReview': 'Share your experience on Google',
     'about.kicker': 'ABOUT',
     'about.title': 'FIND US IN RHODES',
-    'about.copy': 'Pardalos Photos & Videos is the photography and videography business of Tsampikos Pardalos, based in Afantou, Rhodes. We cover weddings and destination weddings in Rhodes, baptisms and events, as well as couple, family and property photography.',
+    'about.copy': 'Pardalos Photos & Videos is the photography and videography business of Tsabickos Pardalos, based in Afantou, Rhodes. We cover weddings and destination weddings in Rhodes, baptisms and events, as well as couple, family and property photography.',
     'about.details': 'You can find us at P. Rammou 186, Afantou, Rhodes. For appointments or information, call us or send an email.',
     'contact.title': 'Let\'s create<br>your memories together!'
   }
@@ -384,8 +384,8 @@ Object.assign(translations.en, {
   'app.download': 'DOWNLOAD THE APP',
   'app.note': 'For Android · Version 1.2.4 · APK file'
 });
-Object.assign(translations.el,{"privacy.0":"Απόρρητο και στατιστικά επισκεψιμότητας","privacy.1":"Το Pardalos Photos & Videos χρησιμοποιεί το Google Analytics 4 για να κατανοεί πόσοι επισκέπτονται τον ιστότοπο, ποιες σελίδες βλέπουν, από ποιον σύνδεσμο έφτασαν εδώ (για παράδειγμα από Viber, Instagram ή Facebook) και βασικές αλληλεπιδράσεις όπως κύλιση της σελίδας και κλικ σε εξωτερικούς συνδέσμους.","privacy.2":"Η επιλογή σας","privacy.3":"Το Google Analytics φορτώνεται μόνο αν επιλέξετε «Αποδοχή» στο σχετικό μήνυμα. Αν επιλέξετε «Όχι, ευχαριστώ», δεν φορτώνεται. Η επιλογή αποθηκεύεται τοπικά στον browser σας, ώστε να μην εμφανίζεται το μήνυμα σε κάθε σελίδα. Μπορείτε να την αλλάξετε από τον σύνδεσμο «Ρυθμίσεις στατιστικών» στο κάτω μέρος του site.","privacy.4":"Τι μετράμε","privacy.5":"Οι αναφορές περιλαμβάνουν συγκεντρωτικά στοιχεία επισκέψεων, σελίδων και πηγής κίνησης. Οι σύνδεσμοι που κοινοποιούμε μπορεί να περιέχουν παραμέτρους <code>utm_source</code> και <code>utm_medium</code> για να ξεχωρίζουμε την εφαρμογή προέλευσης. Δεν χρησιμοποιούμε τα στατιστικά για να βλέπουμε ονόματα συγκεκριμένων επισκεπτών.","privacy.6":"Για περισσότερες πληροφορίες σχετικά με την επεξεργασία από την Google, δείτε την <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Πολιτική απορρήτου της Google</a>.","privacy.7":"Επικοινωνία","privacy.8":"Για ερωτήσεις σχετικά με τον ιστότοπο και τα στατιστικά μπορείτε να επικοινωνήσετε στο <a href=\"mailto:pardalosphotos@hotmail.com\">pardalosphotos@hotmail.com</a>.","privacy.9":"<a href=\"index.html\">← Επιστροφή στην αρχική σελίδα</a>"});
-Object.assign(translations.en,{"privacy.0":"Privacy and visitor statistics","privacy.1":"Pardalos Photos & Videos uses Google Analytics 4 to understand how many people visit the website, which pages they view, which link brought them here (for example Viber, Instagram or Facebook) and basic interactions such as scrolling and clicking external links.","privacy.2":"Your choice","privacy.3":"Google Analytics loads only if you select “Accept” in the notice. If you select “No, thank you”, it does not load. Your choice is stored locally in your browser so the notice does not appear on every page. You can change it using “Analytics settings” at the bottom of the site.","privacy.4":"What we measure","privacy.5":"Reports include aggregate visits, pages and traffic sources. Shared links may contain <code>utm_source</code> and <code>utm_medium</code> parameters to identify the source app. We do not use analytics to view individual visitors’ names.","privacy.6":"For more information about Google’s processing, see the <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Google Privacy Policy</a>.","privacy.7":"Contact","privacy.8":"For questions about the website and analytics, contact <a href=\"mailto:pardalosphotos@hotmail.com\">pardalosphotos@hotmail.com</a>.","privacy.9":"<a href=\"index.html\">← Back to the home page</a>"});
+Object.assign(translations.el,{"privacy.0":"Απόρρητο και στατιστικά επισκεψιμότητας","privacy.1":"Το Pardalos Photos & Videos χρησιμοποιεί το Google Analytics 4 για να κατανοεί πόσοι επισκέπτονται τον ιστότοπο, ποιες σελίδες βλέπουν, από ποιον σύνδεσμο έφτασαν εδώ (για παράδειγμα από Viber, Instagram ή Facebook) και βασικές αλληλεπιδράσεις όπως κύλιση της σελίδας και κλικ σε εξωτερικούς συνδέσμους.","privacy.2":"Η επιλογή σας","privacy.3":"Το Google Analytics φορτώνεται μόνο αν επιλέξετε «Αποδοχή» στο σχετικό μήνυμα. Αν επιλέξετε «Όχι, ευχαριστώ», δεν φορτώνεται. Η επιλογή αποθηκεύεται τοπικά στον browser σας, ώστε να μην εμφανίζεται το μήνυμα σε κάθε σελίδα. Μπορείτε να την αλλάξετε από τον σύνδεσμο «Ρυθμίσεις στατιστικών» στο κάτω μέρος του site.","privacy.4":"Τι μετράμε","privacy.5":"Οι αναφορές περιλαμβάνουν συγκεντρωτικά στοιχεία επισκέψεων, σελίδων και πηγής κίνησης. Οι σύνδεσμοι που κοινοποιούμε μπορεί να περιέχουν παραμέτρους <code>utm_source</code> και <code>utm_medium</code> για να ξεχωρίζουμε την εφαρμογή προέλευσης. Δεν χρησιμοποιούμε τα στατιστικά για να βλέπουμε ονόματα συγκεκριμένων επισκεπτών.","privacy.6":"Για περισσότερες πληροφορίες σχετικά με την επεξεργασία από την Google, δείτε την <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Πολιτική απορρήτου της Google</a>.","privacy.7":"Επικοινωνία","privacy.8":"Για ερωτήσεις σχετικά με τον ιστότοπο και τα στατιστικά μπορείτε να επικοινωνήσετε στο <a href=\"mailto:pardalosphotos@hotmail.com\">pardalosphotos@hotmail.com</a>.","privacy.9":"<a href=\"/\">← Επιστροφή στην αρχική σελίδα</a>"});
+Object.assign(translations.en,{"privacy.0":"Privacy and visitor statistics","privacy.1":"Pardalos Photos & Videos uses Google Analytics 4 to understand how many people visit the website, which pages they view, which link brought them here (for example Viber, Instagram or Facebook) and basic interactions such as scrolling and clicking external links.","privacy.2":"Your choice","privacy.3":"Google Analytics loads only if you select “Accept” in the notice. If you select “No, thank you”, it does not load. Your choice is stored locally in your browser so the notice does not appear on every page. You can change it using “Analytics settings” at the bottom of the site.","privacy.4":"What we measure","privacy.5":"Reports include aggregate visits, pages and traffic sources. Shared links may contain <code>utm_source</code> and <code>utm_medium</code> parameters to identify the source app. We do not use analytics to view individual visitors’ names.","privacy.6":"For more information about Google’s processing, see the <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\">Google Privacy Policy</a>.","privacy.7":"Contact","privacy.8":"For questions about the website and analytics, contact <a href=\"mailto:pardalosphotos@hotmail.com\">pardalosphotos@hotmail.com</a>.","privacy.9":"<a href=\"/\">← Back to the home page</a>"});
 Object.assign(translations.el, {
   'about.personKicker': 'Ο ΑΝΘΡΩΠΟΣ ΠΙΣΩ ΑΠΟ ΤΟΝ ΦΑΚΟ',
   'about.personCopy': 'Το Pardalos Photos & Videos είναι η φωτογραφική και βιντεογραφική δουλειά του Tsabickos Pardalos, με βάση το Αφάντου της Ρόδου. Στόχος μας είναι η φυσική, προσεγμένη αποτύπωση ανθρώπων και πραγματικών στιγμών, από γάμους και destination weddings μέχρι οικογενειακές φωτογραφίσεις και επαγγελματικούς χώρους.',
@@ -411,12 +411,17 @@ function writeLanguagePreference(lang) {
   try { localStorage.setItem(languageKey, lang); } catch { /* Storage may be unavailable. */ }
 }
 function preferredLanguage() {
+  if (location.pathname.startsWith('/en/')) return 'en';
+  const page = location.pathname.split('/').pop() || 'index.html';
+  const paired = /^(index|wedding|baptism|travel|love-story|event|families|airbnb-real-estate)\.html$/.test(page);
+  // Retain legacy English query links, but send paired pages to their stable URL.
   const requested = new URLSearchParams(location.search).get('lang');
-  if (requested === 'el' || requested === 'en') return requested;
-  const saved = readLanguagePreference();
-  if (saved === 'el' || saved === 'en') return saved;
-  const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
-  return browserLanguages.some(lang => String(lang).toLowerCase().startsWith('el')) ? 'el' : 'en';
+  if (paired) {
+    if (requested === 'en') location.replace(page === 'index.html' ? '/en/' + location.hash : '/en/' + page + location.hash);
+    return 'el';
+  }
+  // Album and privacy pages retain their existing explicit translation control.
+  return requested === 'en' ? 'en' : 'el';
 }
 function applyPageLanguage(lang) {
   const english = lang === 'en';
@@ -600,7 +605,7 @@ const collectionNav = document.querySelector('.collection-links .collection-link
 if (collectionNav && !collectionNav.querySelector('.app-nav-cta')) {
   const appLink = document.createElement('a');
   appLink.className = 'app-nav-cta';
-  appLink.href = '/#app';
+  appLink.href = location.pathname.startsWith('/en/') ? '/en/#app' : '/#app';
   appLink.dataset.i18n = 'app.navDownload';
   appLink.textContent = 'Κατέβασε το App';
   collectionNav.insertBefore(appLink, collectionNav.querySelector('.header-phone'));
@@ -637,8 +642,8 @@ document.querySelectorAll('a.portfolio-category[href]:not(.album-card)').forEach
   const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
   if (!match) return;
   const extension = card.dataset.coverExt === 'png' ? 'png' : 'jpg';
-  const coverPath = `assets/images/covers/${match[1]}.${extension}`;
-  const legacyCoverPath = `assets/images/covers/${match[1].replace(/-/g, ' ')}.${extension}`;
+  const coverPath = `/assets/images/covers/${match[1]}.${extension}`;
+  const legacyCoverPath = `/assets/images/covers/${match[1].replace(/-/g, ' ')}.${extension}`;
   const candidates = [...new Set([coverPath, legacyCoverPath])];
   const cover = new Image();
   let attempt = 0;
@@ -670,7 +675,7 @@ if (albumCards.length) {
       label.textContent = count ? count + (document.documentElement.lang === 'en' ? ' photos' : ' φωτογραφίες') : (document.documentElement.lang === 'en' ? 'Ready for photos' : 'Έτοιμο για φωτογραφίες');
       if (card.dataset.cover) { card.style.backgroundImage = `url("${card.dataset.cover}")`; return; }
       const first = files.find(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'));
-      const coverCandidates = [`assets/images/covers/${match[1]}.jpg`, `assets/images/covers/${match[1]}.png`];
+      const coverCandidates = [`/assets/images/covers/${match[1]}.jpg`, `/assets/images/covers/${match[1]}.png`];
       let coverIndex = 0;
       const cover = new Image();
       const loadAlbumCover = () => {
@@ -683,3 +688,4 @@ if (albumCards.length) {
     });
   }).catch(() => {});
 }
+

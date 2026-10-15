@@ -292,3 +292,9 @@ body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaptio
 .collection-links .app-nav-cta:hover,.collection-links .app-nav-cta:focus-visible{background:#653f39;color:#fff;border-color:#653f39;text-decoration:none}
 @media(min-width:761px){.collection-links-inner{gap:clamp(8px,1.15vw,18px);padding-right:155px}}
 @media(max-width:760px){.collection-links .app-nav-cta{grid-column:1/-1;justify-self:stretch;min-height:42px;margin-top:5px;font-size:12px}}
+
+
+/* Stable language URLs share the existing switcher appearance. */
+.language-switcher a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;border:1px solid var(--line);background:transparent;color:var(--muted);font:700 10px/1 Manrope,Arial,sans-serif;letter-spacing:.12em;text-decoration:none}
+.language-switcher a[aria-current="page"]{background:var(--rose);border-color:var(--rose);color:#fff}
+.language-switcher a:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
