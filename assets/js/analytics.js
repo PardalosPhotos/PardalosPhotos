@@ -49,7 +49,7 @@
     banner.setAttribute('aria-label', 'Επιλογές στατιστικών επισκεψιμότητας');
     banner.innerHTML = `
       <p><strong>Στατιστικά επισκεψιμότητας</strong></p>
-      <p>Με την άδειά σας χρησιμοποιούμε το Google Analytics για να βλέπουμε πόσοι επισκέπτονται το site, από πού έρχονται και πώς αλληλεπιδρούν με βασικά στοιχεία της σελίδας. Αν επιλέξετε «Όχι», δεν φορτώνεται το Google Analytics. <a href="privacy.html">Περισσότερες πληροφορίες</a>.</p>
+      <p>Με την άδειά σας χρησιμοποιούμε το Google Analytics για να βλέπουμε πόσοι επισκέπτονται το site, από πού έρχονται και πώς αλληλεπιδρούν με βασικά στοιχεία της σελίδας. Αν επιλέξετε «Όχι», δεν φορτώνεται το Google Analytics. <a href="/privacy.html">Πολιτική απορρήτου και στατιστικών</a>.</p>
       <div class="analytics-consent-actions">
         <button type="button" data-analytics-choice="rejected">Όχι, ευχαριστώ</button>
         <button type="button" data-analytics-choice="accepted">Αποδοχή</button>
@@ -64,7 +64,7 @@
     if (footer) {
       const tools = document.createElement('span');
       tools.className = 'analytics-footer-links';
-      tools.innerHTML = '<a href="privacy.html">Απόρρητο</a> · ';
+      tools.innerHTML = '<a href="/privacy.html">Απόρρητο</a> · ';
       const button = document.createElement('button');
       button.type = 'button';
       button.textContent = 'Ρυθμίσεις στατιστικών';
@@ -79,13 +79,14 @@
     banner.setAttribute('aria-label', en ? 'Visitor analytics choices' : 'Επιλογές στατιστικών επισκεψιμότητας');
     banner.querySelector('strong').textContent = en ? 'Visitor statistics' : 'Στατιστικά επισκεψιμότητας';
     banner.querySelectorAll('p')[1].innerHTML = en
-      ? 'With your permission, we use Google Analytics to understand how many people visit the site, where they come from and how they interact with key parts of the page. If you select “No”, Google Analytics does not load. <a href="privacy.html">More information</a>.'
-      : 'Με την άδειά σας χρησιμοποιούμε το Google Analytics για να βλέπουμε πόσοι επισκέπτονται το site, από πού έρχονται και πώς αλληλεπιδρούν με βασικά στοιχεία της σελίδας. Αν επιλέξετε «Όχι», δεν φορτώνεται το Google Analytics. <a href="privacy.html">Περισσότερες πληροφορίες</a>.';
+      ? 'With your permission, we use Google Analytics to understand how many people visit the site, where they come from and how they interact with key parts of the page. If you select “No”, Google Analytics does not load. <a href="/privacy.html?lang=en">Privacy and analytics policy</a>.'
+      : 'Με την άδειά σας χρησιμοποιούμε το Google Analytics για να βλέπουμε πόσοι επισκέπτονται το site, από πού έρχονται και πώς αλληλεπιδρούν με βασικά στοιχεία της σελίδας. Αν επιλέξετε «Όχι», δεν φορτώνεται το Google Analytics. <a href="/privacy.html">Πολιτική απορρήτου και στατιστικών</a>.';
     banner.querySelector('[data-analytics-choice="rejected"]').textContent = en ? 'No, thank you' : 'Όχι, ευχαριστώ';
     banner.querySelector('[data-analytics-choice="accepted"]').textContent = en ? 'Accept' : 'Αποδοχή';
     const footer = document.querySelector('.analytics-footer-links');
     if (footer) {
       footer.querySelector('a').textContent = en ? 'Privacy' : 'Απόρρητο';
+      footer.querySelector('a').href = en ? '/privacy.html?lang=en' : '/privacy.html';
       footer.querySelector('button').textContent = en ? 'Analytics settings' : 'Ρυθμίσεις στατιστικών';
     }
   }
@@ -105,3 +106,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
   else init();
 })();
+
