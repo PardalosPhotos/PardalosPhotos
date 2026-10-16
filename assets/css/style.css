@@ -298,3 +298,11 @@ body, h1, h2, h3, h4, p, a, span, small, strong, div, button, article, figcaptio
 .language-switcher a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;border:1px solid var(--line);background:transparent;color:var(--muted);font:700 10px/1 Manrope,Arial,sans-serif;letter-spacing:.12em;text-decoration:none}
 .language-switcher a[aria-current="page"]{background:var(--rose);border-color:var(--rose);color:#fff}
 .language-switcher a:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+
+/* English service galleries use album styles without prose-link overrides. */
+.english-portfolio{padding:56px 0;scroll-margin-top:130px}
+.english-portfolio>.shell>h2{font:500 clamp(30px,4vw,46px)/1.1 "Cormorant Garamond",serif;margin:0 0 18px}
+.english-portfolio>.shell>p{color:var(--muted);margin:0 0 24px}
+.english-portfolio .album-card h2{font:400 clamp(32px,4vw,48px)/1.1 "Cormorant Garamond",serif;margin:auto 0 8px;color:#fff}
+.english-portfolio .album-card p,.english-portfolio .album-card small{color:#fff}
+.english-portfolio .album-card:after{background:linear-gradient(0deg,rgba(39,30,27,.85),rgba(39,30,27,.28))}

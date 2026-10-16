@@ -172,10 +172,31 @@ if (gallery) {
   });
 }
 
-document.querySelector('.nav-toggle')?.addEventListener('click', () => document.querySelector('.navlinks').classList.toggle('open'));
-document.querySelectorAll('.navlinks a').forEach(link => link.addEventListener('click', () => document.querySelector('.navlinks').classList.remove('open')));
-
-// ΔΙΟΡΘΩΜΕΝΟ: Αποφυγή infinite loop όταν λείπουν τα εξώφυλλα
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.navlinks');
+function closeNavigation() {
+  navLinks?.classList.remove('open');
+  navToggle?.setAttribute('aria-expanded', 'false');
+}
+if (navToggle && navLinks) {
+  navLinks.id ||= 'primary-navigation';
+  navToggle.type = 'button';
+  navToggle.setAttribute('aria-controls', navLinks.id);
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.addEventListener('click', () => {
+    navToggle.setAttribute('aria-expanded', String(navLinks.classList.toggle('open')));
+  });
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+      closeNavigation();
+      navToggle.focus();
+    }
+  });
+  window.matchMedia('(min-width: 761px)').addEventListener('change', event => {
+    if (event.matches) closeNavigation();
+  });
+}// ΔΙΟΡΘΩΜΕΝΟ: Αποφυγή infinite loop όταν λείπουν τα εξώφυλλα
 const topbar = document.querySelector('.topbar');
 function updateStickyOffset() {
   document.documentElement.style.setProperty('--sticky-offset', `${Math.ceil(topbar?.getBoundingClientRect().height || 0)}px`);
@@ -204,7 +225,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const hash = link.getAttribute('href');
     if (!hash || hash === '#') return;
     event.preventDefault();
-    document.querySelector('.navlinks')?.classList.remove('open');
+    closeNavigation();
     scrollToTarget(hash);
   });
 });
@@ -404,6 +425,14 @@ Object.assign(translations.en, {
   'about.viewGoogle': 'VIEW ON GOOGLE',
   'about.leaveReview': 'LEAVE A REVIEW'
 });
+Object.assign(translations.el, {
+  'contact.address': '⌖   Π. Ράμμου 186',
+  'contact.city': 'Αφάντου, Ρόδος'
+});
+Object.assign(translations.en, {
+  'contact.address': '⌖   P. Rammou 186',
+  'contact.city': 'Afantou, Rhodes'
+});
 function readLanguagePreference() {
   try { return localStorage.getItem(languageKey); } catch { return null; }
 }
@@ -447,7 +476,7 @@ function applyPageLanguage(lang) {
     'families.html': english ? 'Families' : 'Οικογένειες'
   };
   document.querySelectorAll('.collection-links a[href]').forEach(link => {
-    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0];
+    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0].split('/').pop();
     if (collectionLabels[key]) {
       link.textContent = collectionLabels[key];
       link.setAttribute('aria-label', collectionLabels[key]);
@@ -535,7 +564,7 @@ function applyPageLanguage(lang) {
   document.querySelectorAll('.album-card span').forEach(node => { node.textContent = english ? 'OPEN ALBUM →' : 'ΑΝΟΙΞΤΕ ΤΟ ΑΛΜΠΟΥΜ →'; });
   // Keep the selected language visible on links that do not carry data-i18n.
   document.querySelectorAll('.collection-links a[href]').forEach(link => {
-    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0];
+    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0].split('/').pop();
     if (collectionLabels[key]) link.textContent = collectionLabels[key];
   });
 }
@@ -611,6 +640,23 @@ if (collectionNav && !collectionNav.querySelector('.app-nav-cta')) {
   collectionNav.insertBefore(appLink, collectionNav.querySelector('.header-phone'));
 }
 
+// Keep visitors in their chosen language when leaving a shared album or privacy page.
+function translateNavigation(lang) {
+  if (location.pathname.startsWith('/en/')) return;
+  document.querySelectorAll('a[href]').forEach(link => {
+    const original = link.dataset.languageHref || link.getAttribute('href');
+    const url = new URL(original, document.baseURI);
+    if (url.origin !== location.origin) return;
+    const home = url.pathname === '/' || url.pathname === '/index.html';
+    const service = /^\/(wedding|baptism|travel|love-story|event|families|airbnb-real-estate)\.html$/.exec(url.pathname);
+    if (!home && !service) return;
+    link.dataset.languageHref = original;
+    if (lang === 'el') { link.setAttribute('href', original); return; }
+    const fragment = service && link.classList.contains('gallery-back') ? '#portfolio' : url.hash;
+    link.setAttribute('href', (home ? '/en/' : '/en/' + service[1] + '.html') + fragment);
+  });
+}
+
 function applyLanguage(lang, save = false) {
   const dictionary = translations[lang] || translations.el;
   document.documentElement.lang = lang;
@@ -627,11 +673,19 @@ function applyLanguage(lang, save = false) {
   });
   applyPageLanguage(lang);
   translateSharedLanguage(lang);
+  translateNavigation(lang);
   document.dispatchEvent(new CustomEvent('pardalos:language', { detail: { lang } }));
   if (save) writeLanguagePreference(lang);
 }
 document.querySelectorAll('[data-lang-choice]').forEach(button => {
-  button.addEventListener('click', () => applyLanguage(button.dataset.langChoice, true));
+  button.addEventListener('click', () => {
+    const lang = button.dataset.langChoice;
+    applyLanguage(lang, true);
+    const url = new URL(location.href);
+    if (lang === 'en') url.searchParams.set('lang', 'en');
+    else url.searchParams.delete('lang');
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
+  });
 });
 applyLanguage(preferredLanguage());
 
