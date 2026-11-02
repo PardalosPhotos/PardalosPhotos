@@ -411,6 +411,9 @@ function writeLanguagePreference(lang) {
   try { localStorage.setItem(languageKey, lang); } catch { /* Storage may be unavailable. */ }
 }
 function preferredLanguage() {
+  // Published language pages have a stable language independent of saved/browser settings.
+  if (/^\/en(?:\/|$)/.test(location.pathname)) return 'en';
+  if (/^\/(?:index\.html|wedding\.html|baptism\.html|travel\.html|love-story\.html|event\.html|airbnb-real-estate\.html|families\.html)?$/.test(location.pathname)) return 'el';
   const requested = new URLSearchParams(location.search).get('lang');
   if (requested === 'el' || requested === 'en') return requested;
   const saved = readLanguagePreference();
