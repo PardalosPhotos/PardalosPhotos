@@ -3,7 +3,7 @@ const categoryLabels = { wedding: 'ΓΑΜΟΣ', baptism: 'ΒΑΠΤΙΣΗ', trave
 const photoOrder = new Intl.Collator('el', { numeric: true, sensitivity: 'base' });
 
 async function publishedPhotos() {
-  const response = await fetch('album-files.json', { cache: 'no-cache' });
+  const response = await fetch('/album-files.json', { cache: 'no-cache' });
   if (!response.ok) throw new Error('Could not load the published photo list');
   const paths = await response.json();
   if (!Array.isArray(paths)) throw new Error('Invalid published photo list');
@@ -19,7 +19,7 @@ async function publishedPhotos() {
 }
 
 function photoPath(name) {
-  return 'assets/images/' + encodeURIComponent(name).replace(/%2F/g, '/');
+  return '/assets/images/' + encodeURIComponent(name).replace(/%2F/g, '/');
 }
 
 if (gallery) {
@@ -62,7 +62,7 @@ if (gallery) {
         img.width = seo.width; img.height = seo.height;
         img.dataset.seoEl = seo.el; img.dataset.seoEn = seo.en;
         img.dataset.fullSrc = photoPath(item.name);
-        img.src = seo.thumbnail;
+        img.src = new URL(seo.thumbnail, location.origin + '/').href;
       } else {
         img.addEventListener('load', () => { img.width = img.naturalWidth; img.height = img.naturalHeight; }, { once: true });
       }
@@ -414,6 +414,7 @@ function preferredLanguage() {
   // Published language pages have a stable language independent of saved/browser settings.
   if (/^\/en(?:\/|$)/.test(location.pathname)) return 'en';
   if (/^\/(?:index\.html|wedding\.html|baptism\.html|travel\.html|love-story\.html|event\.html|airbnb-real-estate\.html|families\.html)?$/.test(location.pathname)) return 'el';
+  if (/^\/[a-z-]+-\d+\.html$/.test(location.pathname)) return 'el';
   const requested = new URLSearchParams(location.search).get('lang');
   if (requested === 'el' || requested === 'en') return requested;
   const saved = readLanguagePreference();
@@ -445,7 +446,7 @@ function applyPageLanguage(lang) {
     'families.html': english ? 'Families' : 'Οικογένειες'
   };
   document.querySelectorAll('.collection-links a[href]').forEach(link => {
-    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0];
+    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0].split('/').pop();
     if (collectionLabels[key]) {
       link.textContent = collectionLabels[key];
       link.setAttribute('aria-label', collectionLabels[key]);
@@ -533,7 +534,7 @@ function applyPageLanguage(lang) {
   document.querySelectorAll('.album-card span').forEach(node => { node.textContent = english ? 'OPEN ALBUM →' : 'ΑΝΟΙΞΤΕ ΤΟ ΑΛΜΠΟΥΜ →'; });
   // Keep the selected language visible on links that do not carry data-i18n.
   document.querySelectorAll('.collection-links a[href]').forEach(link => {
-    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0];
+    const key = (link.getAttribute('href') || '').split('#')[0].split('?')[0].split('/').pop();
     if (collectionLabels[key]) link.textContent = collectionLabels[key];
   });
 }
@@ -637,11 +638,11 @@ applyLanguage(preferredLanguage());
 // Missing covers leave the existing photograph or gradient unchanged.
 document.querySelectorAll('a.portfolio-category[href]:not(.album-card)').forEach(card => {
   if (card.classList.contains('wedding-cover') || card.classList.contains('baptism-cover') || card.classList.contains('event-cover')) return;
-  const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
+  const match = /^([a-z0-9-]+)\.html$/i.exec((card.getAttribute('href') || '').split('/').pop());
   if (!match) return;
   const extension = card.dataset.coverExt === 'png' ? 'png' : 'jpg';
-  const coverPath = `assets/images/covers/${match[1]}.${extension}`;
-  const legacyCoverPath = `assets/images/covers/${match[1].replace(/-/g, ' ')}.${extension}`;
+  const coverPath = `/assets/images/covers/${match[1]}.${extension}`;
+  const legacyCoverPath = `/assets/images/covers/${match[1].replace(/-/g, ' ')}.${extension}`;
   const candidates = [...new Set([coverPath, legacyCoverPath])];
   const cover = new Image();
   let attempt = 0;
@@ -659,7 +660,7 @@ const albumCards = document.querySelectorAll('.album-grid a.album-card[href]');
 if (albumCards.length) {
   publishedPhotos().then(files => {
     albumCards.forEach(card => {
-      const match = /^([a-z0-9-]+)\.html$/i.exec(card.getAttribute('href') || '');
+      const match = /^([a-z0-9-]+)\.html$/i.exec((card.getAttribute('href') || '').split('/').pop());
       if (!match) return;
       const prefix = (card.dataset.folder || match[1]) + '/';
       const folderCount = files.filter(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/')).length;
@@ -673,7 +674,7 @@ if (albumCards.length) {
       label.textContent = count ? count + (document.documentElement.lang === 'en' ? ' photos' : ' φωτογραφίες') : (document.documentElement.lang === 'en' ? 'Ready for photos' : 'Έτοιμο για φωτογραφίες');
       if (card.dataset.cover) { card.style.backgroundImage = `url("${card.dataset.cover}")`; return; }
       const first = files.find(name => name.startsWith(prefix) && !name.slice(prefix.length).includes('/'));
-      const coverCandidates = [`assets/images/covers/${match[1]}.jpg`, `assets/images/covers/${match[1]}.png`];
+      const coverCandidates = [`/assets/images/covers/${match[1]}.jpg`, `/assets/images/covers/${match[1]}.png`];
       let coverIndex = 0;
       const cover = new Image();
       const loadAlbumCover = () => {
